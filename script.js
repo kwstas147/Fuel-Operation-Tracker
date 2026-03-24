@@ -278,10 +278,9 @@ function updateLanguage(lang) {
     // Update Gallery Captions
     const cards = document.querySelectorAll('.screenshot-card');
     cards.forEach((card, index) => {
+        // Καθαρισμός αν υπήρχαν παλιά captions
         const caption = card.querySelector('.screenshot-caption');
-        if (caption && t.screenshots[index]) {
-            caption.innerText = t.screenshots[index];
-        }
+        if (caption) caption.remove();
     });
     
     lucide.createIcons();
@@ -308,7 +307,6 @@ if (gallery) {
                      alt="Screenshot ${i}" 
                      loading="lazy">
             </div>
-            <div class="screenshot-caption">Screenshot ${i}</div>
         `;
         gallery.appendChild(card);
     }
@@ -316,3 +314,48 @@ if (gallery) {
 
 // Update language after cards are created
 updateLanguage(savedLang);
+
+// --- Gallery Interactive Features ---
+
+const scrollArea = document.querySelector('.gallery-scroll');
+const btnPrev = document.getElementById('gallery-prev');
+const btnNext = document.getElementById('gallery-next');
+
+// 1. Mouse Drag Scroll
+let isDown = false;
+let startX;
+let scrollLeft;
+
+scrollArea.addEventListener('mousedown', (e) => {
+    isDown = true;
+    scrollArea.classList.add('active');
+    startX = e.pageX - scrollArea.offsetLeft;
+    scrollLeft = scrollArea.scrollLeft;
+});
+
+scrollArea.addEventListener('mouseleave', () => {
+    isDown = false;
+});
+
+scrollArea.addEventListener('mouseup', () => {
+    isDown = false;
+});
+
+scrollArea.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollArea.offsetLeft;
+    const walk = (x - startX) * 2; // scroll-fast
+    scrollArea.scrollLeft = scrollLeft - walk;
+});
+
+// 2. Navigation Buttons
+if (btnPrev && btnNext) {
+    btnPrev.addEventListener('click', () => {
+        scrollArea.scrollBy({ left: -400, behavior: 'smooth' });
+    });
+    
+    btnNext.addEventListener('click', () => {
+        scrollArea.scrollBy({ left: 400, behavior: 'smooth' });
+    });
+}

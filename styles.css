@@ -218,19 +218,35 @@ h1, h2, h3 {
 
 .phone-mockup {
     width: 280px;
-    height: 580px;
-    border-radius: 40px;
-    border: 12px solid #1c1c1e;
+    height: 622px; /* 9:20 ratio roughly */
+    border-radius: 32px;
+    border: 8px solid #1a1a1a;
+    border-bottom-width: 16px; /* Android-style chin */
     overflow: hidden;
     background: #000;
-    box-shadow: 0 50px 100px rgba(0,0,0,0.3);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5), inset 0 0 0 1px #2a2a2a;
     position: relative;
+    margin: 0 auto;
+}
+
+.phone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: #2c2c2c;
+    border-radius: 10px;
+    z-index: 2;
 }
 
 .phone-mockup img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 /* Features */
@@ -268,20 +284,60 @@ h1, h2, h3 {
     margin-bottom: 40px;
 }
 
+.gallery-container {
+    position: relative;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+}
+
 .gallery-scroll {
     overflow-x: auto;
-    padding: 40px 5%;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary) transparent;
+    padding: 40px 10px;
+    scrollbar-width: none; /* Hide for better look, drag & arrows handle it */
+    -ms-overflow-style: none;
+    cursor: grab;
+    user-select: none;
+}
+
+.gallery-scroll:active {
+    cursor: grabbing;
 }
 
 .gallery-scroll::-webkit-scrollbar {
-    height: 6px;
+    display: none;
 }
 
-.gallery-scroll::-webkit-scrollbar-thumb {
+.gallery-nav-btn {
+    position: absolute;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.gallery-nav-btn:hover {
     background: var(--primary);
-    border-radius: 10px;
+    color: white;
+    transform: scale(1.15);
+}
+
+.gallery-nav-btn.left { left: 10px; }
+.gallery-nav-btn.right { right: 10px; }
+
+@media (max-width: 900px) {
+    .gallery-nav-btn { display: none; }
+    .gallery-container { padding: 0; }
 }
 
 .screenshots-row {
@@ -310,16 +366,16 @@ h1, h2, h3 {
 
 .screenshot-img-wrapper {
     width: 100%;
-    border-radius: 22px;
+    border-radius: 20px;
     overflow: hidden;
-    aspect-ratio: 9/19;
-    background: #000;
+    aspect-ratio: 9 / 20;  /* Standard Modern Android ratio */
+    background: #050505;
 }
 
 .screenshot-img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Fits perfectly now with 9:20 */
     display: block;
 }
 
