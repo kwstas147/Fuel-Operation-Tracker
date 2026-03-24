@@ -20,7 +20,8 @@ const translations = {
             "Maintenance HUB", "Maintenance History", "Calendar View", "Data Table Logs",
             "Settings & Sync", "Biometric Lock", "Language Selection", "Theme Selection",
             "Backup & Restore", "Project Management", "Machine Config", "Support & About"
-        ]
+        ],
+        footerDevelop: "Developed by"
     },
     el: {
         title: "Premium Εμπειρία, σε Όλες τις Πλατφόρμες.",
@@ -43,7 +44,8 @@ const translations = {
             "Maintenance HUB", "Ιστορικό Συντήρησης", "Προβολή Ημερολογίου", "Πίνακας Δεδομένων",
             "Ρυθμίσεις & Συγχρονισμός", "Βιομετρικό Κλείδωμα", "Επιλογή Γλώσσας", "Επιλογή Θέματος",
             "Backup & Restore", "Διαχείριση Έργων", "Ρύθμιση Μηχανών", "Υποστήριξη & Πληροφορίες"
-        ]
+        ],
+        footerDevelop: "Αναπτύχθηκε από"
     },
     de: {
         title: "Premium-Erfahrung, auf allen Plattformen.",
@@ -66,7 +68,8 @@ const translations = {
             "Wartungs-HUB", "Wartungsverlauf", "Kalenderansicht", "Datentabellen-Logs",
             "Einstellungen & Sync", "Biometrische Sperre", "Sprachauswahl", "Themenauswahl",
             "Backup & Restore", "Projektmanagement", "Maschinenkonfig", "Support & Über"
-        ]
+        ],
+        footerDevelop: "Entwickelt von"
     },
     fr: {
         title: "Expérience Premium, sur toutes les plateformes.",
@@ -88,8 +91,9 @@ const translations = {
             "Tableau de bord (Clair)", "Tableau de bord (Sombre)", "Analyses & Stats", "Saisie de Carburant",
             "HUB Maintenance", "Historique Maintenance", "Vue Calendrier", "Tableau de Données",
             "Réglages & Synchro", "Verrou Biométrique", "Choix de la Langue", "Choix du Thème",
-            "Backup & Restauration", "Gestion de Projets", "Configuration Machines", "Support & À propos"
-        ]
+            "Backup & Restore", "Gestion de Projets", "Configuration Machines", "Support & À propos"
+        ],
+        footerDevelop: "Développé par"
     },
     es: {
         title: "Experiencia Premium, en todas las plataformas.",
@@ -111,8 +115,9 @@ const translations = {
             "Panel (Claro)", "Panel (Oscuro)", "Análisis y Estadísticas", "Entrada de Combustible",
             "HUB de Mantenimiento", "Historial Mantenimiento", "Vista de Calendario", "Tabla de Datos",
             "Ajustes y Sincro", "Bloqueo Biométrico", "Selección de Idioma", "Selección de Tema",
-            "Copia de Seguridad", "Gestión de Proyectos", "Config. Máquinas", "Soporte y Acerca de"
-        ]
+            "Copia de Seguridad", "Gestión de Proyectos", "Config. Máquinas", "Soportε y Acerca de"
+        ],
+        footerDevelop: "Desarrollado por"
     },
     it: {
         title: "Esperienza Premium, su tutte le piattaforme.",
@@ -135,7 +140,8 @@ const translations = {
             "HUB Manutenzione", "Storico Manutenzioni", "Vista Calendario", "Tabella Dati",
             "Impostazioni e Sync", "Blocco Biometrico", "Scelta Lingua", "Scelta Tema",
             "Backup e Ripristino", "Gestione Progetti", "Config. Macchine", "Supporto e Info"
-        ]
+        ],
+        footerDevelop: "Sviluppato da"
     },
     ru: {
         title: "Премиум-опыт на всех платформах.",
@@ -158,7 +164,8 @@ const translations = {
             "Центр обслуживания", "История ТО", "Календарь", "Таблица данных",
             "Настройки и Синхр.", "Биометрия", "Выбор языка", "Выбор темы",
             "Бэκαп и Восстановление", "Проекты", "Конфиг техники", "Поддержка"
-        ]
+        ],
+        footerDevelop: "Разработано"
     },
     zh: {
         title: "跨平台卓越体验。",
@@ -181,7 +188,8 @@ const translations = {
             "维护中心", "维护历史", "日历视图", "数据表格",
             "设置与同步", "生物锁定", "语言选择", "主题选择",
             "备份与恢复", "项目管理", "机器配置", "支持与关于"
-        ]
+        ],
+        footerDevelop: "开发人"
     },
     hi: {
         title: "प्रीमियम अनुभव, सभी प्लेटफार्मों पर।",
@@ -200,11 +208,12 @@ const translations = {
         techTitle: "तकनीकी उत्कृष्टता",
         chooseLang: "भाषा चुनें",
         screenshots: [
-            "डैशボード (लाइट)", "डैशबोर्ड (डार्क)", "एनालिटिक्स और आँकड़े", "ईंधन प्रविष्टि",
+            "डैश बोर्ड (लाइट)", "डैशबोर्ड (डार्क)", "एनालिटिक्स और आँकड़े", "ईंधन प्रविष्टि",
             "रखरखाव हब", "रखरखाव इतिहास", "कैलेंडर दृश्य", "डेटा टेबल",
             "सेटिंग्स और सिंक", "बायोमेट्रिक लॉक", "भाषा चयन", "थीम चयन",
             "बैकअप और रिस्टोर", "परियोजना प्रबंधन", "मशीन कॉन्फ़िगरेशन", "सहायτα और जानकारी"
-        ]
+        ],
+        footerDevelop: "द्वारा विकसित"
     }
 };
 
@@ -274,6 +283,12 @@ function updateLanguage(lang) {
     
     const exploreBtn = document.getElementById('explore-features-btn');
     if (exploreBtn) exploreBtn.innerText = t.explore;
+
+    // Update Footer Text
+    const footerText = document.getElementById('footer-text');
+    if (footerText) {
+        footerText.innerHTML = `© 2026 Fuel Operation Tracker. ${t.footerDevelop} <a href="https://github.com/kwstas147">kwstas147</a>`;
+    }
 
     // Update Gallery Captions
     const cards = document.querySelectorAll('.screenshot-card');
