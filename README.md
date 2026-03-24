@@ -4,6 +4,7 @@
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android%20%7C%20Web%20%7C%20Desktop-lightgray.svg?style=for-the-badge&logo=flutter)](https://flutter.dev)
+[![Website](https://img.shields.io/badge/Website-Live%20Demo-brightgreen.svg?style=for-the-badge&logo=google-chrome&logoColor=white)](https://kwstas147.github.io/Fuel-Operation-Tracker/)
 
 > **Unique Selling Point**: Μια premium cross-platform εφαρμογή, σχεδιασμένη με την elite Cupertino αισθητική, που προσφέρει απόλυτο έλεγχο, ασφάλεια και ταχύτητα στη διαχείριση καυσίμων σε Android, iOS, Web και Desktop.
 
