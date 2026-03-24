@@ -300,7 +300,13 @@ if (gallery) {
         card.className = 'screenshot-card';
         card.innerHTML = `
             <div class="screenshot-img-wrapper">
-                <img src="assets/screenshots/screenshot_${i}.png" alt="Screenshot ${i}" loading="lazy">
+                <img src="assets/screenshots/optimized_assets/${i}-800w.jpg" 
+                     srcset="assets/screenshots/optimized_assets/${i}-400w.jpg 400w,
+                             assets/screenshots/optimized_assets/${i}-800w.jpg 800w,
+                             assets/screenshots/optimized_assets/${i}-1200w.jpg 1200w"
+                     sizes="(max-width: 600px) 280px, 400px"
+                     alt="Screenshot ${i}" 
+                     loading="lazy">
             </div>
             <div class="screenshot-caption">Screenshot ${i}</div>
         `;
