@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Operation Tracker | Premium Fuel Management</title>
+    <meta name="description" content="Professional Fuel Management with Native iOS Cupertino Design. Support for 9 languages and Biometric Security.">
+    
+    <!-- Google Fonts: Inter & Outfit for premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/fuel.png" alt="Fuel Tracker Logo" id="app-logo-nav">
+                <span class="app-name">Fuel Tracker</span>
+            </div>
+            <div class="nav-controls">
+                <select id="language-selector" class="glass-select">
+                    <option value="en">English</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="it">Italiano</option>
+                    <option value="ru">Русский</option>
+                    <option value="zh">中文</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+                <button id="theme-toggle" class="glass-btn">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 id="hero-title" class="animate-up">Professional Fuel Management, <br><span class="gradient-text">The Native iOS Way.</span></h1>
+                <p id="hero-subtitle" class="animate-up delay-1">Track fuel consumption in real-time with an elite Cupertino interface. Secure, multilingual, and built for performance.</p>
+                <div class="hero-actions animate-up delay-2">
+                    <a href="https://github.com/kwstas147/Fuel-Operation-Tracker" class="btn btn-primary">
+                        <i data-lucide="github"></i> View Repository
+                    </a>
+                    <a href="#features" class="btn btn-secondary">Explore Features</a>
+                </div>
+            </div>
+            <div class="hero-image animate-fade-in">
+                <div class="phone-mockup">
+                    <img id="hero-mockup" src="assets/screenshots/screenshot_1.png" alt="App interface">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon icon-blue">
+                    <i data-lucide="zap"></i>
+                </div>
+                <h3 id="feature-1-title">Real-time Tracking</h3>
+                <p id="feature-1-desc">Monitor fuel addition and consumption for all your machines in real-time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon icon-purple">
+                    <i data-lucide="smartphone"></i>
+                </div>
+                <h3 id="feature-2-title">Cupertino Design</h3>
+                <p id="feature-2-desc">Experience a native iOS aesthetic with smooth animations and blurring effects.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon icon-green">
+                    <i data-lucide="globe"></i>
+                </div>
+                <h3 id="feature-3-title">9 Languages Support</h3>
+                <p id="feature-3-desc">Fully localized for global use, including English, Greek, German, and more.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon icon-red">
+                    <i data-lucide="lock"></i>
+                </div>
+                <h3 id="feature-4-title">Biometric Security</h3>
+                <p id="feature-4-desc">Protect your data with Fingerprint and Face ID authentication.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <h2 id="gallery-title">Visual Showcase</h2>
+            <div class="gallery-container">
+                <div class="gallery-scroll">
+                    <!-- Images will be injected by script.js -->
+                    <div id="screenshots-gallery" class="screenshots-row"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="tech-stack">
+            <h2 id="tech-title">Technical Excellence</h2>
+            <div class="tech-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Riverpod</span>
+                <span class="tag">Clean Architecture</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Biometrics</span>
+                <span class="tag">Google Cloud</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p id="footer-text">© 2026 Fuel Operation Tracker. Developed by <a href="https://github.com/kwstas147">kwstas147</a></p>
+            <div class="social-links">
+                <a href="mailto:infokwstas147@gmail.com"><i data-lucide="mail"></i></a>
+                <a href="https://github.com/kwstas147/Fuel-Operation-Tracker"><i data-lucide="github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
