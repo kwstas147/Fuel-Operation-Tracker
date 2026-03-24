@@ -1,219 +1,206 @@
 const translations = {
-    en: {
-        title: "Premium Experience, Across All Platforms.",
-        subtitle: "The ultimate fuel tracker for Android, iOS, Web, and Desktop. Secure, multilingual, and built with elite Cupertino aesthetics.",
-        viewRepo: "View Repository",
-        explore: "Explore Features",
-        f1Title: "Real-time Tracking",
-        f1Desc: "Monitor fuel addition and consumption for all your machines in real-time.",
-        f2Title: "Multi-Platform UI",
-        f2Desc: "Experience a premium, native-feel interface on every device you own.",
-        f3Title: "9 Languages Support",
-        f3Desc: "Fully localized for global use, including English, Greek, German, and more.",
-        f4Title: "Biometric Security",
-        f4Desc: "Protect your data with Fingerprint and Face ID authentication.",
-        galleryTitle: "Visual Showcase",
-        techTitle: "Technical Excellence",
-        chooseLang: "Choose Language",
-        screenshots: [
-            "Dashboard (Light Mode)", "Dashboard (Dark Mode)", "Analytics & Stats", "Fuel Entry Form",
-            "Maintenance HUB", "Maintenance History", "Calendar View", "Data Table Logs",
-            "Settings & Sync", "Biometric Lock", "Language Selection", "Theme Selection",
-            "Backup & Restore", "Project Management", "Machine Config", "Support & About"
-        ],
-        footerDevelop: "Developed by"
-    },
     el: {
-        title: "Premium Εμπειρία, σε Όλες τις Πλατφόρμες.",
-        subtitle: "Ο απόλυτος Fuel Tracker για Android, iOS, Web και Desktop. Ασφαλής, πολύγλωσσος και με premium Cupertino αισθητική.",
+        title: "Premium Εμπειρία, σε όλες τις πλατφόρμες.",
+        subtitle: "Ο απόλυτος ιχνηλάτης καυσίμων για Android, iOS, Web και Desktop. Ασφαλές, πολύγλωσσο και με Cupertino αισθητική.",
         viewRepo: "Δείτε το Repository",
         explore: "Εξερευνήστε τις Δυνατότητες",
-        f1Title: "Real-time Παρακολούθηση",
-        f1Desc: "Παρακολουθήστε την προσθήκη και κατανάλωση καυσίμων για όλα τα μηχανήματά σας.",
-        f2Title: "Multi-Platform UI",
-        f2Desc: "Απολαύστε native αίσθηση και κορυφαία αισθητική σε κάθε σας συσκευή.",
-        f3Title: "Υποστήριξη 9 Γλωσσών",
-        f3Desc: "Πλήρως μεταφρασμένο για διεθνή χρήση, συμπεριλαμβανομένων Ελληνικών και Αγγλικών.",
-        f4Title: "Βιομετρική Ασφάλεια",
-        f4Desc: "Προστατέψτε τα δεδομένα σας με Fingerprint και Face ID authentication.",
-        galleryTitle: "Εικόνες Εφαρμογής",
+        featuresTitle: "Βασικά Χαρακτηριστικά",
+        f1Title: "Καταγραφή Καυσίμων",
+        f1Desc: "Καταγράψτε κάθε ανεφοδιασμό με λεπτομερή αναλυτικά στοιχεία και παρακολούθηση κόστους.",
+        f2Title: "Συντήρηση",
+        f2Desc: "Μην χάνετε ποτέ το σέρβις με έξυπνα αρχεία για λάδια, ελαστικά και άλλα.",
+        f3Title: "Στατιστικά",
+        f3Desc: "Οπτικά γραφήματα που δείχνουν τις τάσεις κατανάλωσης ανά πάσα στιγμή.",
+        f4Title: "Πολλαπλά Οχήματα",
+        f4Desc: "Διαχειριστείτε πολλά οχήματα ή έναν ολόκληρο στόλο σε μία εφαρμογή.",
+        f5Title: "Ασφάλεια",
+        f5Desc: "Βιομετρικό κλείδωμα και κρυπτογράφηση SQLCipher για τα δεδομένα σας.",
+        f6Title: "Google Cloud",
+        f6Desc: "Ασφαλή αντίγραφα ασφαλείας στο cloud για να διατηρείτε τα δεδομένα σας σε όλες τις συσκευές.",
+        galleryTitle: "Οπτική Παρουσίαση",
         techTitle: "Τεχνική Αριστεία",
-        chooseLang: "Επιλέξτε Γλώσσα",
-        screenshots: [
-            "Dashboard (Light Mode)", "Dashboard (Dark Mode)", "Αναλυτικά Στατιστικά", "Φόρμα Καυσίμου",
-            "Maintenance HUB", "Ιστορικό Συντήρησης", "Προβολή Ημερολογίου", "Πίνακας Δεδομένων",
-            "Ρυθμίσεις & Συγχρονισμός", "Βιομετρικό Κλείδωμα", "Επιλογή Γλώσσας", "Επιλογή Θέματος",
-            "Backup & Restore", "Διαχείριση Έργων", "Ρύθμιση Μηχανών", "Υποστήριξη & Πληροφορίες"
-        ],
-        footerDevelop: "Αναπτύχθηκε από"
+        footerDevelop: "Αναπτύχθηκε από",
+        chooseLang: "Επιλογή Γλώσσας"
+    },
+    en: {
+        title: "Premium Experience, across all platforms.",
+        subtitle: "The ultimate fuel tracker for Android, iOS, Web, and Desktop. Secure, multilingual, and Cupertino-styled.",
+        viewRepo: "View Repository",
+        explore: "Explore Features",
+        featuresTitle: "Core Features",
+        f1Title: "Fuel Tracking",
+        f1Desc: "Log every fill-up with detailed analytics and cost tracking.",
+        f2Title: "Maintenance",
+        f2Desc: "Never miss a service with smart logs for oils, tires, and more.",
+        f3Title: "Statistics",
+        f3Desc: "Visual graphs showing your consumption trends over time.",
+        f4Title: "Multi-Vehicle",
+        f4Desc: "Manage multiple vehicles or a whole fleet in one app.",
+        f5Title: "Security",
+        f5Desc: "Biometric locking and SQLCipher encryption for your data.",
+        f6Title: "Google Cloud",
+        f6Desc: "Secure cloud backups to keep your data safe across devices.",
+        galleryTitle: "Visual Showcase",
+        techTitle: "Technical Excellence",
+        footerDevelop: "Developed by",
+        chooseLang: "Choose Language"
     },
     de: {
-        title: "Premium-Erfahrung, auf allen Plattformen.",
-        subtitle: "Der ultimative Treibstoff-Tracker für Android, iOS, Web und Desktop. Sicher, mehrsprachig und mit Cupertino-Ästhetik.",
+        title: "Premium-Erlebnis auf allen Plattformen.",
+        subtitle: "Der ultimative Kraftstoff-Tracker für Android, iOS, Web und Desktop. Sicher, mehrsprachig und im Cupertino-Stil.",
         viewRepo: "Repository ansehen",
         explore: "Funktionen erkunden",
-        f1Title: "Echtzeit-Tracking",
-        f1Desc: "Überwachen Sie die Kraftstoffzugabe und den Verbrauch aller Ihrer Maschinen in Echtzeit.",
-        f2Title: "Multi-Plattform UI",
-        f2Desc: "Erleben Sie eine native Benutzeroberfläche auf jedem Gerät, das Sie besitzen.",
-        f3Title: "9 Sprachen Unterstützung",
-        f3Desc: "Vollständig lokalisiert für den globalen Einsatz, inkl. Deutsch, Englisch, Griechisch.",
-        f4Title: "Biometrische Sicherheit",
-        f4Desc: "Schützen Sie Ihre Daten mit Fingerabdruck- und Face ID-Authentifizierung.",
-        galleryTitle: "Visuelles Schaufenster",
+        featuresTitle: "Kernfunktionen",
+        f1Title: "Kraftstoff-Verfolgung",
+        f1Desc: "Protokollieren Sie jede Tankfüllung mit detaillierten Analysen und Kostenverfolgung.",
+        f2Title: "Wartung",
+        f2Desc: "Verpassen Sie nie wieder einen Service mit intelligenten Protokollen für Öl, Reifen und mehr.",
+        f3Title: "Statistiken",
+        f3Desc: "Visuelle Grafiken, die Ihre Verbrauchstrends im Zeitverlauf anzeigen.",
+        f4Title: "Mehrere Fahrzeuge",
+        f4Desc: "Verwalten Sie mehrere Fahrzeuge oder eine ganze Flotte in einer App.",
+        f5Title: "Sicherheit",
+        f5Desc: "Biometrische Sperrung und SQLCipher-Verschlüsselung für Ihre Daten.",
+        f6Title: "Google Cloud",
+        f6Desc: "Sichere Cloud-Backups, um Ihre Daten auf allen Geräten sicher aufzubewahren.",
+        galleryTitle: "Visuelle Präsentation",
         techTitle: "Technische Exzellenz",
-        chooseLang: "Sprache wählen",
-        screenshots: [
-            "Dashboard (Hell)", "Dashboard (Dunkel)", "Analysen & Statistiken", "Kraftstoff-Eingabe",
-            "Wartungs-HUB", "Wartungsverlauf", "Kalenderansicht", "Datentabellen-Logs",
-            "Einstellungen & Sync", "Biometrische Sperre", "Sprachauswahl", "Themenauswahl",
-            "Backup & Restore", "Projektmanagement", "Maschinenkonfig", "Support & Über"
-        ],
-        footerDevelop: "Entwickelt von"
+        footerDevelop: "Entwickelt von",
+        chooseLang: "Sprache wählen"
     },
     fr: {
         title: "Expérience Premium, sur toutes les plateformes.",
-        subtitle: "Le tracker de carburant ultime pour Android, iOS, Web et Desktop. Sécurisé, multilingue και au style Cupertino.",
-        viewRepo: "Voir le code",
-        explore: "Explorer",
-        f1Title: "Suivi en temps réel",
-        f1Desc: "Surveillez l'ajout και la consommation de carburant de vos machines en temps réel.",
-        f2Title: "UI Multi-Plateforme",
-        f2Desc: "Découvrez une interface native sur tous vos appareils.",
-        f3Title: "Support de 9 Langues",
-        f3Desc: "Entièrement traduit pour un usage mondial (FR, EN, EL, DE, etc.).",
-        f4Title: "Sécurité Biométrique",
-        f4Desc: "Sécurisez vos données avec l'empreinte digitale και Face ID.",
-        galleryTitle: "Galerie Visuelle",
+        subtitle: "Le traqueur de carburant ultime pour Android, iOS, Web et Desktop. Sécurisé, multilingue et style Cupertino.",
+        viewRepo: "Voir le Repository",
+        explore: "Explorer les fonctionnalités",
+        featuresTitle: "Fonctionnalités Clés",
+        f1Title: "Suivi du Carburant",
+        f1Desc: "Enregistrez chaque plein avec des analyses détaillées et un suivi des coûts.",
+        f2Title: "Entretien",
+        f2Desc: "Ne manquez jamais un entretien grâce à des journaux intelligents pour l'huile, les pneus, κτλ.",
+        f3Title: "Statistiques",
+        f3Desc: "Graphiques visuels montrant les tendances de consommation au fil du temps.",
+        f4Title: "Multi-Véhicules",
+        f4Desc: "Gérez plusieurs véhicules ou une flotte entière dans une seule application.",
+        f5Title: "Sécurité",
+        f5Desc: "Verrouillage biométrique et cryptage SQLCipher pour vos données.",
+        f6Title: "Google Cloud",
+        f6Desc: "Sauvegardes cloud sécurisées pour garder vos données en sécurité sur tous vos appareils.",
+        galleryTitle: "Présentation Visuelle",
         techTitle: "Excellence Technique",
-        chooseLang: "Choisir la Langue",
-        screenshots: [
-            "Tableau de bord (Clair)", "Tableau de bord (Sombre)", "Analyses & Stats", "Saisie de Carburant",
-            "HUB Maintenance", "Historique Maintenance", "Vue Calendrier", "Tableau de Données",
-            "Réglages & Synchro", "Verrou Biométrique", "Choix de la Langue", "Choix du Thème",
-            "Backup & Restore", "Gestion de Projets", "Configuration Machines", "Support & À propos"
-        ],
-        footerDevelop: "Développé par"
+        footerDevelop: "Développé par",
+        chooseLang: "Choisir la langue"
     },
     es: {
         title: "Experiencia Premium, en todas las plataformas.",
-        subtitle: "El rastreador de combustible ideal para Android, iOS, Web y Escritorio. Seguro, multilingüe y con estética Cupertino.",
+        subtitle: "El rastreador de combustible definitivo para Android, iOS, Web y Desktop. Seguro, multilingüe y estilo Cupertino.",
         viewRepo: "Ver Repositorio",
         explore: "Explorar Funciones",
-        f1Title: "Rastreo en Tiempo Real",
-        f1Desc: "Monitoree la carga y el consumo de combustible de todas sus máquinas.",
-        f2Title: "UI Multiplataforma",
-        f2Desc: "Experimente una interfaz nativa premium en cada dispositivo que tenga.",
-        f3Title: "Soporte para 9 Idiomas",
-        f3Desc: "Totalmente localizado para uso global (ES, EN, EL, DE, etc.).",
-        f4Title: "Seguridad Biométrica",
-        f4Desc: "Proteja sus datos con Huella Digital and Face ID.",
-        galleryTitle: "Galería Visual",
+        featuresTitle: "Funciones Principales",
+        f1Title: "Seguimiento de Combustible",
+        f1Desc: "Registre cada carga con análisis detallados y seguimiento de costos.",
+        f2Title: "Mantenimiento",
+        f2Desc: "No pierda nunca un servicio con registros inteligentes para aceites, neumáticos y más.",
+        f3Title: "Estadísticas",
+        f3Desc: "Gráficos visuales que muestran sus tendencias de consumo a lo largo del tiempo.",
+        f4Title: "Multi-Vehículo",
+        f4Desc: "Gestione varios vehículos o una flota completa en una sola aplicación.",
+        f5Title: "Seguridad",
+        f5Desc: "Bloqueo biométrico y cifrado SQLCipher para sus datos.",
+        f6Title: "Google Cloud",
+        f6Desc: "Copias de seguridad en la nube seguras para mantener sus datos a salvo en todos los dispositivos.",
+        galleryTitle: "Vitrina Visual",
         techTitle: "Excelencia Técnica",
-        chooseLang: "Elegir Idioma",
-        screenshots: [
-            "Panel (Claro)", "Panel (Oscuro)", "Análisis y Estadísticas", "Entrada de Combustible",
-            "HUB de Mantenimiento", "Historial Mantenimiento", "Vista de Calendario", "Tabla de Datos",
-            "Ajustes y Sincro", "Bloqueo Biométrico", "Selección de Idioma", "Selección de Tema",
-            "Copia de Seguridad", "Gestión de Proyectos", "Config. Máquinas", "Soportε y Acerca de"
-        ],
-        footerDevelop: "Desarrollado por"
+        footerDevelop: "Desarrollado por",
+        chooseLang: "Elegir Idioma"
     },
     it: {
         title: "Esperienza Premium, su tutte le piattaforme.",
-        subtitle: "Il tracker di carburante definitivo per Android, iOS, Web e Desktop. Sicuro, multilingue και stile Cupertino.",
+        subtitle: "L'ultimo tracker di carburante per Android, iOS, Web e Desktop. Sicuro, multilingue e in stile Cupertino.",
         viewRepo: "Vedi Repository",
-        explore: "Esplora Funzioni",
-        f1Title: "Monitoraggio nel tempo",
-        f1Desc: "Controlla il rifornimento και il consumo di carburante di tutte le tue macchine.",
-        f2Title: "UI Multi-Piattaforma",
-        f2Desc: "Sperimenta un'interfaccia nativa premium su ogni tuo dispositivo.",
-        f3Title: "Supporto 9 Lingue",
-        f3Desc: "Completamente localizzato per uso globale (IT, EN, EL, DE, etc.).",
-        f4Title: "Sicurezza Biometrica",
-        f4Desc: "Proteggi i tuoi dati con Impronta Digitale και Face ID.",
-        galleryTitle: "Galleria Visiva",
+        explore: "Esplora le Funzionalità",
+        featuresTitle: "Funzionalità Chiave",
+        f1Title: "Monitoraggio Carburante",
+        f1Desc: "Registra ogni rifornimento con analisi dettagliate e monitoraggio dei costi.",
+        f2Title: "Manutenzione",
+        f2Desc: "Non perdere mai un tagliando con registri intelligenti per oli, pneumatici e altro.",
+        f3Title: "Statistiche",
+        f3Desc: "Grafici visivi che mostrano le tendenze dei consumi nel tempo.",
+        f4Title: "Multi-Veicolo",
+        f4Desc: "Gestisci più veicoli o un'intera flotta in un'unica app.",
+        f5Title: "Sicurezza",
+        f5Desc: "Blocco biometrico e crittografia SQLCipher per i tuoi dati.",
+        f6Title: "Google Cloud",
+        f6Desc: "Backup cloud sicuri per mantenere i tuoi dati al sicuro su tutti i dispositivi.",
+        galleryTitle: "Vetrina Visuale",
         techTitle: "Eccellenza Tecnica",
-        chooseLang: "Scegli Lingua",
-        screenshots: [
-            "Dashboard (Chiaro)", "Dashboard (Scuro)", "Analisi e Statistiche", "Inserimento Carburante",
-            "HUB Manutenzione", "Storico Manutenzioni", "Vista Calendario", "Tabella Dati",
-            "Impostazioni e Sync", "Blocco Biometrico", "Scelta Lingua", "Scelta Tema",
-            "Backup e Ripristino", "Gestione Progetti", "Config. Macchine", "Supporto e Info"
-        ],
-        footerDevelop: "Sviluppato da"
+        footerDevelop: "Sviluppato da",
+        chooseLang: "Scegli Lingua"
     },
     ru: {
-        title: "Премиум-опыт на всех платформах.",
-        subtitle: "Лучший трекер топлива для Android, iOS, Web и Desktop. Безопасно, многоязычно и в стиле Cupertino.",
-        viewRepo: "Перейти в Репозиторий",
-        explore: "Возможности",
-        f1Title: "Отслеживание 24/7",
-        f1Desc: "Мониторинг заправки и расхода топлива для всей техники в реальном времени.",
-        f2Title: "Мультиплатформенный UI",
-        f2Desc: "Испытайте нативный интерфейс на любом вашем устройстве.",
-        f3Title: "Поддержка 9 языков",
-        f3Desc: "Полная локализация для всего мира (RU, EN, EL, DE и др.).",
-        f4Title: "Биометрия",
-        f4Desc: "Защита данных с помощью отпечатка пальца и Face ID.",
-        galleryTitle: "Скриншоты",
-        techTitle: "Техническое совершенство",
-        chooseLang: "Выбрать язык",
-        screenshots: [
-            "Панель (Светлая)", "Панель (Темная)", "Аналитика и Статистика", "Ввод топлива",
-            "Центр обслуживания", "История ТО", "Календарь", "Таблица данных",
-            "Настройки и Синхр.", "Биометрия", "Выбор языка", "Выбор темы",
-            "Бэκαп и Восстановление", "Проекты", "Конфиг техники", "Поддержка"
-        ],
-        footerDevelop: "Разработано"
+        title: "Премиальный опыт на всех платформах.",
+        subtitle: "Лучший трекер топлива для Android, iOS, Web и Desktop. Безопасный, многоязычный и в стиле Cupertino.",
+        viewRepo: "Посмотреть Репозиторий",
+        explore: "Изучить возможности",
+        featuresTitle: "Основные Характеристики",
+        f1Title: "Отслеживание Топлива",
+        f1Desc: "Записывайте каждую заправку с детальной аналитикой и отслеживанием затрат.",
+        f2Title: "Обслуживание",
+        f2Desc: "Никогда не пропускайте сервис благодаря умным логам для масла, шин и прочего.",
+        f3Title: "Статистика",
+        f3Desc: "Наглядные графики, показывающие тенденции потребления со временем.",
+        f4Title: "Несколько Очередей",
+        f4Desc: "Управляйте несколькими транспортными средствами или целым автопарком в одном приложении.",
+        f5Title: "Безопасность",
+        f5Desc: "Биометрическая блокировка и шифрование SQLCipher для ваших данных.",
+        f6Title: "Google Cloud",
+        f6Desc: "Безопасные облачные бэкапы для сохранения ваших данных на всех устройствах.",
+        galleryTitle: "Визуальный Обзор",
+        techTitle: "Техническое Совершенство",
+        footerDevelop: "Разработано",
+        chooseLang: "Выбрать Язык"
     },
     zh: {
-        title: "跨平台卓越体验。",
-        subtitle: "适用于 Android、iOS、Web 和桌面端的终极燃油追踪器。安全、多语言、极致 Cupertino 美学。",
+        title: "全平台的卓越体验。",
+        subtitle: "适用于 Android, iOS, Web 和 Desktop 的终极燃料追踪器。安全、多语言且具有 Cupertino 风格。",
         viewRepo: "查看代码库",
         explore: "探索功能",
-        f1Title: "实时跟踪",
-        f1Desc: "实时监控所有机器的燃油添加和消耗情况。",
-        f2Title: "跨平台 UI",
-        f2Desc: "在您的每台设备上都能体验原生品质界面。",
-        f3Title: "支持 9 种语言",
-        f3Desc: "完全本地化（中文、英文、希腊语等）。",
-        f4Title: "生物识别安全",
-        f4Desc: "使用指纹和面容 ID 保护您的数据。",
-        galleryTitle: "界面展示",
+        featuresTitle: "核心功能",
+        f1Title: "燃料追踪",
+        f1Desc: "记录每次加油并提供详细分析和成本追踪。",
+        f2Title: "维护计划",
+        f2Desc: "绝不错过保养，提供机油、轮胎等智能日志。",
+        f3Title: "数据统计",
+        f3Desc: "显示消费趋势的可视化图表。",
+        f4Title: "多车辆管理",
+        f4Desc: "在同一个应用中管理多辆车或整个车队。",
+        f5Title: "安全防护",
+        f5Desc: "生物特征识别锁定和 SQLCipher 数据加密。",
+        f6Title: "谷歌云端",
+        f6Desc: "安全的云端备份，确保数据在所有设备上安全。",
+        galleryTitle: "视觉展示",
         techTitle: "技术卓越",
-        chooseLang: "选择语言",
-        screenshots: [
-            "仪表盘 (浅色)", "仪表盘 (深色)", "分析与统计", "燃油记录",
-            "维护中心", "维护历史", "日历视图", "数据表格",
-            "设置与同步", "生物锁定", "语言选择", "主题选择",
-            "备份与恢复", "项目管理", "机器配置", "支持与关于"
-        ],
-        footerDevelop: "开发人"
+        footerDevelop: "开发者",
+        chooseLang: "选择语言"
     },
     hi: {
         title: "प्रीमियम अनुभव, सभी प्लेटफार्मों पर।",
         subtitle: "Android, iOS, Web, और Desktop के लिए बेहतरीन फ्यूल ट्रैकर। सुरक्षित, बहुभाषी और क्यूपर्टिनो शैली में।",
         viewRepo: "रिपॉजिटरी देखें",
         explore: "फीचर्स देखें",
-        f1Title: "रियल-टाइम ट्रैकिंग",
-        f1Desc: "अपनी सभी मशीनों के लिए वास्तविक समय में ईंधन की निगरानी करें।",
-        f2Title: "मल्टी-प्लेटफॉर्म UI",
-        f2Desc: "अपने हर डिवाइस पर प्रीमियम, नेटिव इंटरफ़ेस का अनुभव करें।",
-        f3Title: "9 भाषाओं का समर्थन",
-        f3Desc: "वैश्विक उपयोग के लिए पूरी तरह से स्थानीयकृत (हिंदी, अंग्रेजी, आदि)।",
-        f4Title: "बायोमेट्रिक सुरक्षा",
-        f4Desc: "फिंगρप्रिंट और फेस आईडी के साथ अपना डेटा सुरक्षित रखें।",
-        galleryTitle: "विजुअल शोκεस",
-        techTitle: "तकनीकी उत्कृष्टता",
-        chooseLang: "भाषा चुनें",
-        screenshots: [
-            "डैश बोर्ड (लाइट)", "डैशबोर्ड (डार्क)", "एनालिटिक्स और आँकड़े", "ईंधन प्रविष्टि",
-            "रखरखाव हब", "रखरखाव इतिहास", "कैलेंडर दृश्य", "डेटा टेबल",
-            "सेटिंग्स और सिंक", "बायोमेट्रिक लॉक", "भाषा चयन", "थीम चयन",
-            "बैकअप और रिस्टोर", "परियोजना प्रबंधन", "मशीन कॉन्फ़िगरेशन", "सहायτα और जानकारी"
-        ],
-        footerDevelop: "द्वारा विकसित"
+        featuresTitle: "प्रमुख विशेषताएं",
+        f1Title: "ईंधन ट्रैकिंग",
+        f1Desc: "विस्तृत विश्लेषण और लागत ट्रैकिंग के साथ हर रिफिल को लॉग करें।",
+        f2Title: "रखरखाव",
+        f2Desc: "तेल, टायर और बहुत कुछ के लिए स्मार्ट लॉग के साथ कभी भी सर्विस न चूकें।",
+        f3Title: "आँकड़े",
+        f3Desc: "खपत के रुझान दिखाने वाले दृश्य ग्राफ।",
+        f4Title: "बहु-वाहन",
+        f4Desc: "एक ऐप में कई वाहनों का प्रबंधन करें।",
+        f5Title: "सुरक्षा",
+        f5Desc: "बायοमेट्रिक लॉकिंग और डेटा एन्क्रिप्शन।",
+        f6Title: "गूगल क्लाउड",
+        f6Desc: "सुरक्षित क्लाउड बैकअप।"
     }
 };
 
@@ -251,6 +238,7 @@ langSelector.addEventListener('change', (e) => {
 
 function updateLanguage(lang) {
     const t = translations[lang];
+    if (!t) return;
     
     // Smooth update for title and subtitle
     const heroTitle = document.getElementById('hero-title');
@@ -264,19 +252,24 @@ function updateLanguage(lang) {
         
     if (heroSubtitle) heroSubtitle.innerText = t.subtitle;
     
-    const elements = [
-        ['feature-1-title', t.f1Title], ['feature-1-desc', t.f1Desc],
-        ['feature-2-title', t.f2Title], ['feature-2-desc', t.f2Desc],
-        ['feature-3-title', t.f3Title], ['feature-3-desc', t.f3Desc],
-        ['feature-4-title', t.f4Title], ['feature-4-desc', t.f4Desc],
-        ['gallery-title', t.galleryTitle], ['tech-title', t.techTitle]
+    // Update IDs
+    const elementsToTranslate = [
+        ['gallery-title', t.galleryTitle],
+        ['tech-title', t.techTitle],
+        ['features-title', t.featuresTitle],
+        ['f1-title', t.f1Title], ['f1-desc', t.f1Desc],
+        ['f2-title', t.f2Title], ['f2-desc', t.f2Desc],
+        ['f3-title', t.f3Title], ['f3-desc', t.f3Desc],
+        ['f4-title', t.f4Title], ['f4-desc', t.f4Desc],
+        ['f5-title', t.f5Title], ['f5-desc', t.f5Desc],
+        ['f6-title', t.f6Title], ['f6-desc', t.f6Desc]
     ];
     
-    elements.forEach(([id, text]) => {
+    elementsToTranslate.forEach(([id, text]) => {
         const el = document.getElementById(id);
-        if (el) el.innerText = text;
+        if (el && text) el.innerText = text;
     });
-    
+
     // Update button text
     const viewRepoBtn = document.getElementById('view-repo-btn');
     if (viewRepoBtn) viewRepoBtn.innerHTML = `<i data-lucide="github"></i> ${t.viewRepo}`;
@@ -290,14 +283,6 @@ function updateLanguage(lang) {
         footerText.innerHTML = `© 2026 Fuel Operation Tracker. ${t.footerDevelop} <a href="https://github.com/kwstas147">kwstas147</a>`;
     }
 
-    // Update Gallery Captions
-    const cards = document.querySelectorAll('.screenshot-card');
-    cards.forEach((card, index) => {
-        // Καθαρισμός αν υπήρχαν παλιά captions
-        const caption = card.querySelector('.screenshot-caption');
-        if (caption) caption.remove();
-    });
-    
     lucide.createIcons();
 }
 
@@ -327,45 +312,49 @@ if (gallery) {
     }
 }
 
-// Update language after cards are created
+// Update language after everything is ready
 updateLanguage(savedLang);
 
-// --- Gallery Interactive Features ---
+// Security check for Lucide icons
+window.addEventListener('load', () => {
+    if (window.lucide) lucide.createIcons();
+});
 
+// Gallery Interactive Features
 const scrollArea = document.querySelector('.gallery-scroll');
 const btnPrev = document.getElementById('gallery-prev');
 const btnNext = document.getElementById('gallery-next');
 
-// 1. Mouse Drag Scroll
-let isDown = false;
-let startX;
-let scrollLeft;
+if (scrollArea) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-scrollArea.addEventListener('mousedown', (e) => {
-    isDown = true;
-    scrollArea.classList.add('active');
-    startX = e.pageX - scrollArea.offsetLeft;
-    scrollLeft = scrollArea.scrollLeft;
-});
+    scrollArea.addEventListener('mousedown', (e) => {
+        isDown = true;
+        scrollArea.classList.add('active');
+        startX = e.pageX - scrollArea.offsetLeft;
+        scrollLeft = scrollArea.scrollLeft;
+    });
 
-scrollArea.addEventListener('mouseleave', () => {
-    isDown = false;
-});
+    scrollArea.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
 
-scrollArea.addEventListener('mouseup', () => {
-    isDown = false;
-});
+    scrollArea.addEventListener('mouseup', () => {
+        isDown = false;
+    });
 
-scrollArea.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - scrollArea.offsetLeft;
-    const walk = (x - startX) * 2; // scroll-fast
-    scrollArea.scrollLeft = scrollLeft - walk;
-});
+    scrollArea.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollArea.offsetLeft;
+        const walk = (x - startX) * 2;
+        scrollArea.scrollLeft = scrollLeft - walk;
+    });
+}
 
-// 2. Navigation Buttons
-if (btnPrev && btnNext) {
+if (btnPrev && btnNext && scrollArea) {
     btnPrev.addEventListener('click', () => {
         scrollArea.scrollBy({ left: -400, behavior: 'smooth' });
     });
