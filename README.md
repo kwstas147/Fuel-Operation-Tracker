@@ -3,18 +3,18 @@
 
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
-[![Platform](https://img.shields.io/badge/Platform-iOS-lightgray.svg?style=for-the-badge&logo=apple)](https://www.apple.com/ios/)
+[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android%20%7C%20Web%20%7C%20Desktop-lightgray.svg?style=for-the-badge&logo=flutter)](https://flutter.dev)
 
-> **Unique Selling Point**: Μια εφαρμογή υψηλών προδιαγραφών, σχεδιασμένη αποκλειστικά για το iOS οικοσύστημα (Native Cupertino Design), που προσφέρει απόλυτο έλεγχο, ασφάλεια και ταχύτητα στη διαχείριση των καυσίμων σας.
+> **Unique Selling Point**: Μια premium cross-platform εφαρμογή, σχεδιασμένη με την elite Cupertino αισθητική, που προσφέρει απόλυτο έλεγχο, ασφάλεια και ταχύτητα στη διαχείριση καυσίμων σε Android, iOS, Web και Desktop.
 
 ---
 
 ## ✨ Βασικά Χαρακτηριστικά (Features)
 
-*   **📊 Παρακολούθηση σε Πραγματικό Χρόνο**: Καταγράψτε και αναλύστε την κατανάλωση καυσίμων με ακρίβεια, εξασφαλίζοντας πλήρη εικόνα των εξόδων σας.
-*   **🍎 Elite Cupertino Design**: Πλήρης εναρμόνιση με τα standards της Apple. Απολαύστε το αυθεντικό "bouncing" εφέ και την κορυφαία αισθητική που μόνο ένα native-feel iOS app μπορεί να προσφέρει.
-*   **🌍 Πολυγλωσσική Υποστήριξη (9 Γλώσσες)**: Σχεδιασμένο για παγκόσμια χρήση με υποστήριξη σε: **Ελληνικά, Αγγλικά, Γερμανικά, Γαλλικά, Ισπανικά, Ιταλικά, Ρωσικά, Κινέζικα και Ινδικά**.
-*   **🔐 Βιομετρική Ασφάλεια**: Προστασία των δεδομένων σας με FaceID/TouchID. Η ιδιωτικότητά σας είναι προτεραιότητα, με αυτόματο Privacy Screen (blur overlay) κατά την εναλλαγή εφαρμογών.
+*   **📊 Παρακολούθηση σε Πραγματικό Χρόνο**: Καταγράψτε και αναλύστε την κατανάλωση καυσίμων με ακρίβεια σε όλες τις συσκευές σας.
+*   **🌐 Multi-Platform Excellence**: Μία εφαρμογή, παντού. Απολαύστε κορυφαία αισθητική και native-feel εμπειρία σε iPhone, Android, browser και υπολογιστή.
+*   **🌍 Πολυγλωσσική Υποστήριξη (9 Γλώσσες)**: Πλήρως μεταφρασμένο σε: **Ελληνικά, Αγγλικά, Γερμανικά, Γαλλικά, Ισπανικά, Ιταλικά, Ρωσικά, Κινέζικα και Ινδικά**.
+*   **🔐 Βιομετρική Ασφάλεια**: Προστασία των δεδομένων σας με FaceID/TouchID ή Fingerprint, συνοδευόμενη από αυτόματο Privacy Screen για απόλυτη ιδιωτικότητα.
 
 ---
 

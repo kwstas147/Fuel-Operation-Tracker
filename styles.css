@@ -143,6 +143,7 @@ h1, h2, h3 {
 .gradient-text {
     background: var(--primary-gradient);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -156,6 +157,24 @@ h1, h2, h3 {
 .hero-actions {
     display: flex;
     gap: 16px;
+    margin-bottom: 30px;
+}
+
+.platform-badges {
+    display: flex;
+    gap: 20px;
+    color: var(--text-secondary);
+}
+
+.platform-badges i {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.platform-badges i:hover {
+    opacity: 1;
 }
 
 .btn {
