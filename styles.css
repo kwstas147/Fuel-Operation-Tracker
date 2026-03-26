@@ -11,7 +11,8 @@
     --accent-purple: #AF52DE;
     --accent-green: #34C759;
     --accent-red: #FF3B30;
-    --nav-bg: rgba(255, 255, 255, 0.6);
+    --overlay-bg: rgba(255, 255, 255, 0.95);
+    --overlay-text: #1C1C1E;
 }
 
 body.dark-mode {
@@ -21,6 +22,8 @@ body.dark-mode {
     --text-secondary: #EBEBF5;
     --glass-border: rgba(255, 255, 255, 0.1);
     --nav-bg: rgba(28, 28, 30, 0.6);
+    --overlay-bg: rgba(20, 20, 22, 0.96);
+    --overlay-text: #FFFFFF;
 }
 
 * {
@@ -432,28 +435,6 @@ h1, h2, h3 {
 }
 
 /* Animations & More */
-.tech-stack {
-    text-align: center;
-    padding: 80px 5%;
-}
-
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 30px;
-}
-
-.tag {
-    padding: 8px 18px;
-    background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
 footer {
     padding: 60px 5%;
     border-top: 1px solid var(--glass-border);
@@ -765,21 +746,20 @@ footer {
 /* Premium Slide-up Overlay for Feature Cards */
 .feature-card {
     position: relative;
-    overflow: hidden; /* Hide the overlay when it's slid down */
+    overflow: hidden;
 }
 
-.feature-card::after {
-    content: attr(data-tooltip);
+.feature-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     padding: 30px;
-    background: rgba(20, 20, 22, 0.95); /* Deep dark background for clear contrast */
-    color: #ffffff;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--overlay-bg); /* Use matching theme color */
+    color: var(--overlay-text);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     font-size: 1.05rem;
     line-height: 1.6;
     text-align: center;
@@ -793,10 +773,15 @@ footer {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
     z-index: 10;
     pointer-events: none;
-    border-radius: inherit; /* Match the card's rounded corners */
+    border-radius: inherit;
 }
 
-.feature-card:hover::after {
+.feature-card:hover .feature-overlay {
     opacity: 1;
     transform: translateY(0);
+}
+
+.feature-overlay p {
+    margin: 0;
+    font-weight: 500;
 }
