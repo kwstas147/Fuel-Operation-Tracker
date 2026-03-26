@@ -541,3 +541,224 @@ footer {
     .nav-container { padding: 0 10px; gap: 8px; }
     .glass-select { font-size: 0.8rem; padding: 4px 8px; }
 }
+
+/* --- New Sections Styling --- */
+
+/* How it Works */
+.how-it-works {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.step-card {
+    padding: 50px 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.step-number {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 4rem;
+    font-weight: 900;
+    opacity: 0.05;
+    color: var(--primary);
+}
+
+.step-card i {
+    width: 64px;
+    height: 64px;
+    color: var(--primary);
+}
+
+.step-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Privacy Section */
+.privacy-section {
+    padding: 80px 5%;
+}
+
+.privacy-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 50px;
+    border-radius: 40px;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+}
+
+.privacy-container h2 {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+}
+
+.privacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+}
+
+.privacy-item i {
+    width: 56px;
+    height: 56px;
+    color: #34c759;
+    margin-bottom: 25px;
+}
+
+.privacy-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.privacy-item p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Premium / Pricing */
+.pricing-section {
+    padding: 100px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.pricing-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.pricing-title h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    justify-content: center;
+}
+
+.pricing-card {
+    padding: 50px 40px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card.premium {
+    border: 2px solid var(--primary);
+    background: rgba(0, 112, 243, 0.03);
+}
+
+.pricing-card.premium::before {
+    content: 'BEST VALUE';
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: var(--primary);
+    color: white;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.pricing-header h3 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+.pricing-features li i {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.pricing-features li.included i {
+    color: #34c759;
+}
+
+.pricing-features li.excluded {
+    opacity: 0.4;
+}
+
+.pricing-features li.excluded i {
+    color: #ff3b30;
+}
+
+@media (max-width: 600px) {
+    .how-it-works h2, .pricing-title h2 { font-size: 2.2rem; }
+    .privacy-container { padding: 40px 25px; }
+    .pricing-card { padding: 40px 25px; }
+}
