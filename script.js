@@ -18,8 +18,8 @@ const translations = {
         p2Title: "Καμία Παρακολούθηση",
         p2Desc: "Δεν συλλέγουμε ούτε πουλάμε τα προσωπικά σας στοιχεία.",
         pricingMainTitle: "Επιλέξτε το Πρόγραμμά σας",
-        pricingSubtitle: "Ξεκινήστε δωρεάν, αναβαθμίστε για επαγγελματικές δυνατότητες.",
-        freeName: "Δωρεάν",
+        pricingSubtitle: "\u039E\u03B5\u03BA\u03B9\u03BD\u03AE\u03C3\u03C4\u03B5 \u03B4\u03C9\u03C1\u03B5\u03AC\u03BD, \u03B1\u03BD\u03B1\u03B2\u03B1\u03B8\u03BC\u03AF\u03C3\u03C4\u03B5 \u03B3\u03B9\u03B1 \u03B5\u03C0\u03B1\u03B3\u03B3\u03B5\u03BB\u03BC\u03B1\u03C4\u03B9\u03BA\u03AD\u03C2 \u03B4\u03C5\u03BD\u03B1\u03C4\u03CC\u03C4\u03B7\u03C4\u03B5\u03C2.",
+        freeName: "\u0394\u03C9\u03C1\u03B5\u03AC\u03BD",
         freePrice: "€0",
         freeF1: "Έως 3 Οχήματα",
         freeF2: "Βασική Καταγραφή",
@@ -27,7 +27,7 @@ const translations = {
         freeF4: "Στατιστικά",
         freeF5: "Εξαγωγή Excel",
         freeF6: "Χωρίς Διαφημίσεις",
-        freeDetailsTitle: "Ανάλυση Δωρεάν Πλάνου",
+        freeDetailsTitle: "\u0391\u03BD\u03AC\u03BB\u03C5\u03C3\u03B7 \u0394\u03C9\u03C1\u03B5\u03AC\u03BD \u03A0\u03BB\u03AC\u03BD\u03BF\u03C5",
         freeProsTitle: "Πλεονεκτήματα",
         freeProsText: "Μηδενικό κόστος, ιδανικό για προσωπική χρήση και βασική παρακολούθηση με πλήρη ιδιωτικότητα.",
         freeConsTitle: "Περιορισμοί",
@@ -721,7 +721,7 @@ function updateLanguage(lang) {
         footerText.innerHTML = `© 2026 Fuel Operation Tracker. ${t.footerDevelop} <a href="https://github.com/kwstas147">kwstas147</a>`;
     }
 
-    lucide.createIcons();
+    if (window.lucide) lucide.createIcons();
 }
 
 // Initial Lang check
