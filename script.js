@@ -722,7 +722,8 @@ function updateLanguage(lang) {
                 el.style.display = '';
                 // Use innerHTML for titles to support entities/rendering fixes
                 // Support innerHTML for titles and detail text blocks
-                if (id.includes('title') || id.includes('Pros') || id.includes('Cons')) {
+                // Use innerHTML for titles/pros/cons to allow formatting (like <br>)
+                if (id.includes('title') || id.toLowerCase().includes('pros') || id.toLowerCase().includes('cons')) {
                     el.innerHTML = text;
                 } else {
                     el.innerText = text;
