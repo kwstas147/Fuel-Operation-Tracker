@@ -27,7 +27,7 @@ const translations = {
         freeF4: "Στατιστικά",
         freeF5: "Εξαγωγή Excel",
         freeF6: "Χωρίς Διαφημίσεις",
-        freeDetailsTitle: "Δωρεάν Πλάνο <span style=\"-webkit-text-fill-color: var(--primary); text-fill-color: var(--primary); font-weight: 700;\">\u0394\u03C9\u03C1\u03B5\u03AC\u03BD</span> \u03A0\u03BB\u03AC\u03BD\u03BF\u03C5",
+        freeDetailsTitle: "\u0391\u03BD\u03AC\u03BB\u03C5\u03C3\u03B7 <span style=\"-webkit-text-fill-color: var(--primary); text-fill-color: var(--primary); font-weight: 700;\">\u0394\u03C9\u03C1\u03B5\u03AC\u03BD</span> \u03A0\u03BB\u03AC\u03BD\u03BF\u03C5",
         freeProsTitle: "Πλεονεκτήματα",
         freeProsText: "Μηδενικό κόστος, ιδανικό για προσωπική χρήση και βασική παρακολούθηση με πλήρη ιδιωτικότητα.",
         freeConsTitle: "Περιορισμοί",
