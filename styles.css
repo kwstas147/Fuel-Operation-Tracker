@@ -2,8 +2,8 @@
     /* Color Tokens (Light Mode Default) */
     --primary: #007AFF;
     --primary-gradient: linear-gradient(135deg, #007AFF 0%, #00C6FF 100%);
-    --bg-color: #F2F2F7;
-    --card-bg: rgba(255, 255, 255, 0.7);
+    --bg-color: #F0F7FF; /* Softer light blue for light mode */
+    --card-bg: rgba(255, 255, 255, 0.82);
     --text-primary: #1C1C1E;
     --text-secondary: #3A3A3C;
     --glass-border: rgba(255, 255, 255, 0.3);
@@ -308,6 +308,12 @@ h1, h2, h3 {
     padding: 32px;
     border: 1px solid var(--glass-border);
     transition: transform 0.3s ease;
+    min-height: 480px; /* Increased to fit multilingual content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .feature-card:hover {
@@ -465,8 +471,10 @@ footer {
 
 .social-card i,
 .social-card svg {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
     transition: transform 0.3s ease;
     display: inline-block;
     stroke: currentColor;
@@ -737,6 +745,84 @@ footer {
     color: #ff3b30;
 }
 
+/* Pricing Hover Overlay */
+.pricing-details-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 20;
+    padding: 40px;
+    border-radius: 35px;
+    text-align: center;
+}
+
+.pricing-card:hover .pricing-details-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.details-content {
+    width: 100%;
+}
+
+.details-content h4 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, var(--primary), #00d2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pros, .cons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pros h5 {
+    color: #34c759;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cons h5 {
+    color: #ff3b30;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pros p, .cons p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
 @media (max-width: 600px) {
     .how-it-works h2, .pricing-title h2 { font-size: 2.2rem; }
     .privacy-container { padding: 40px 25px; }
@@ -766,6 +852,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-y: auto; /* Allow scrolling for long text */
     
     /* Animation state - Hidden below the card */
     opacity: 0;
