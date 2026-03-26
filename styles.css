@@ -555,10 +555,7 @@ footer {
 .how-it-works h2 {
     font-size: 3rem;
     margin-bottom: 60px;
-    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
 }
 
 .steps-container {
@@ -589,7 +586,7 @@ footer {
     right: 30px;
     font-size: 4rem;
     font-weight: 900;
-    opacity: 0.05;
+    opacity: 0.15;
     color: var(--primary);
 }
 
@@ -621,7 +618,9 @@ footer {
     padding: 80px 50px;
     border-radius: 40px;
     text-align: center;
-    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
 }
 
 .privacy-container h2 {
@@ -761,4 +760,40 @@ footer {
     .how-it-works h2, .pricing-title h2 { font-size: 2.2rem; }
     .privacy-container { padding: 40px 25px; }
     .pricing-card { padding: 40px 25px; }
+}
+
+/* Tooltips for Feature Cards */
+.feature-card {
+    position: relative;
+    overflow: visible;
+}
+
+.feature-card::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 250px;
+    padding: 15px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    pointer-events: none;
+}
+
+.feature-card:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }

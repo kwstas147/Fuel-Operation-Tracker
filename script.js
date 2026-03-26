@@ -692,3 +692,41 @@ if (btnPrev && btnNext && scrollArea) {
         scrollArea.scrollBy({ left: 400, behavior: 'smooth' });
     });
 }
+
+
+// --- Theme Toggle Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    if (!themeBtn) return;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.body.className = currentTheme;
+        updateThemeIcon(currentTheme);
+    } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.body.className = prefersDark ? 'dark-mode' : 'light-mode';
+        updateThemeIcon(document.body.className);
+    }
+    themeBtn.addEventListener('click', () => {
+        if (document.body.className === 'light-mode') {
+            document.body.className = 'dark-mode';
+            localStorage.setItem('theme', 'dark-mode');
+            updateThemeIcon('dark-mode');
+        } else {
+            document.body.className = 'light-mode';
+            localStorage.setItem('theme', 'light-mode');
+            updateThemeIcon('light-mode');
+        }
+    });
+    function updateThemeIcon(theme) {
+        if (themeIcon) {
+            if (theme === 'dark-mode') {
+                themeIcon.setAttribute('data-lucide', 'sun');
+            } else {
+                themeIcon.setAttribute('data-lucide', 'moon');
+            }
+            if (window.lucide) window.lucide.createIcons();
+        }
+    }
+});
