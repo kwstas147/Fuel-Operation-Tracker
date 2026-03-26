@@ -27,7 +27,7 @@ const translations = {
         freeF4: "Στατιστικά",
         freeF5: "Εξαγωγή Excel",
         freeF6: "Χωρίς Διαφημίσεις",
-        freeDetailsTitle: "\u0391\u03BD\u03AC\u03BB\u03C5\u03C3\u03B7 \u0394\u03C9\u03C1\u03B5\u03AC\u03BD \u03A0\u03BB\u03AC\u03BD\u03BF\u03C5",
+        freeDetailsTitle: "\u0391\u03BD\u03AC\u03BB\u03C5\u03C3\u03B7 <span style=\"-webkit-text-fill-color: var(--primary); text-fill-color: var(--primary); font-weight: 700;\">\u0394\u03C9\u03C1\u03B5\u03AC\u03BD</span> \u03A0\u03BB\u03AC\u03BD\u03BF\u03C5",
         freeProsTitle: "Πλεονεκτήματα",
         freeProsText: "Μηδενικό κόστος, ιδανικό για προσωπική χρήση και βασική παρακολούθηση με πλήρη ιδιωτικότητα.",
         freeConsTitle: "Περιορισμοί",
@@ -43,8 +43,8 @@ const translations = {
         premiumDetailsTitle: "Ανάλυση Premium Πλάνου",
         premiumProsTitle: "Πλεονεκτήματα",
         premiumProsText: "Πλήρης έλεγχος στόλου, προηγμένη ευφυΐα δεδομένων και απόλυτη ασφάλεια με cloud συγχρονισμό.",
-        premiumConsTitle: "Μειονεκτήματα",
-        premiumConsText: "Απαιτείται συνδρομή για την πρόσβαση σε όλες τις επαγγελματικές δυνατότητες.",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "Καταγραφή Καυσίμων",
         f1Desc: "Καταγράψτε κάθε ανεφοδιασμό με λεπτομερή αναλυτικά στοιχεία και παρακολούθηση κόστους.",
         f2Title: "Συντήρηση",
@@ -112,8 +112,8 @@ const translations = {
         premiumDetailsTitle: "Premium Plan Analysis",
         premiumProsTitle: "Advantages",
         premiumProsText: "Full fleet control, professional data intelligence and peace of mind via cloud sync.",
-        premiumConsTitle: "Disadvantages",
-        premiumConsText: "Requires a premium upgrade to unlock the full potential of professional tracking.",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "Fuel Tracking",
         f1Desc: "Log every fill-up with detailed analytics and cost tracking.",
         f2Title: "Maintenance",
@@ -181,8 +181,8 @@ const translations = {
         premiumDetailsTitle: "Analyse Premium Plan",
         premiumProsTitle: "Vorteile",
         premiumProsText: "Vollständige Fuhrparkkontrolle und Cloud-Sicherung für absolute Datensicherheit.",
-        premiumConsTitle: "Nachteile",
-        premiumConsText: "Erfordert ein Upgrade für den Zugriff auf alle professionellen Funktionen.",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "Kraftstoff-Verfolgung",
         f1Desc: "Protokollieren Sie jede Tankfüllung mit detaillierten Analysen.",
         f2Title: "Wartung",
@@ -250,8 +250,8 @@ const translations = {
         premiumDetailsTitle: "Analyse Plan Premium",
         premiumProsTitle: "Avantages",
         premiumProsText: "Contrôle total de la flotte et synchronisation cloud pour une sécurité maximale.",
-        premiumConsTitle: "Inconvénients",
-        premiumConsText: "Nécessite une mise à niveau pour toutes les fonctions professionnelles.",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "Suivi du Carburant",
         f1Desc: "Enregistrez chaque plein avec des analyses détaillées.",
         f2Title: "Entretien",
@@ -319,8 +319,8 @@ const translations = {
         premiumDetailsTitle: "Análisis Plan Premium",
         premiumProsTitle: "Ventajas",
         premiumProsText: "Control total de flota y respaldo en la nube para máxima seguridad.",
-        premiumConsTitle: "Desventajas",
-        premiumConsText: "Requiere una suscripción para funciones profesionales completas.",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "Seguimiento de Combustible",
         f1Desc: "Registre cada carga con análisis detallados.",
         f2Title: "Mantenimiento",
@@ -388,8 +388,8 @@ const translations = {
         premiumDetailsTitle: "Analisi Piano Premium",
         premiumProsTitle: "Vantaggi",
         premiumProsText: "Controllo totale della flotta e backup cloud per massima sicurezza.",
-        premiumConsTitle: "Svantaggi",
-        premiumConsText: "Richiede l'upgrade Pro per tutte le funzioni avanzate.",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "Monitoraggio Carburante",
         f1Desc: "Registra ogni rifornimento con analisi dettagliate.",
         f2Title: "Manutenzione",
@@ -457,8 +457,8 @@ const translations = {
         premiumDetailsTitle: "Анализ Premium Плана",
         premiumProsTitle: "Плюсы",
         premiumProsText: "Полный контроль парка и облачные бэкапы для всех устройств.",
-        premiumConsTitle: "Минусы",
-        premiumConsText: "Требуется подписка для доступа ко всем функциям.",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "Отслеживание Топлива",
         f1Desc: "Записывайте каждую заправку с детальной аналитикой.",
         f2Title: "Обслуживание",
@@ -526,8 +526,8 @@ const translations = {
         premiumDetailsTitle: "Premium 方案详情",
         premiumProsTitle: "优点",
         premiumProsText: "全车队管理，专业数据智能和云端备份保护。",
-        premiumConsTitle: "缺点",
-        premiumConsText: "需要升级订阅才能解锁全方位的专业追踪能力。",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "燃料追踪",
         f1Desc: "记录每次加油并提供详细分析。",
         f2Title: "维护计划",
@@ -595,8 +595,8 @@ const translations = {
         premiumDetailsTitle: "प्रीमियम योजना विश्लेषण",
         premiumProsTitle: "लाभ",
         premiumProsText: "पूर्ण बेड़े का नियंत्रण और क्लाउड बैकअप की सुरक्षा।",
-        premiumConsTitle: "हानि",
-        premiumConsText: "सभी प्रो फीचर्स के लिए अपग्रेड आवश्यक है।",
+        premiumConsTitle: "",
+        premiumConsText: "",
         f1Title: "ईंधन ट्रैकिंग",
         f1Desc: "हर रिफिल को विस्तृत विश्लेषण के साथ लॉग करें।",
         f2Title: "रखरखाव",
@@ -705,7 +705,29 @@ function updateLanguage(lang) {
     
     elementsToTranslate.forEach(([id, text]) => {
         const el = document.getElementById(id);
-        if (el && text) el.innerText = text;
+        if (el) {
+            if (text === "") {
+                // If text is empty, hide the parent section if it's a title/text pair
+                if (id.includes('title') || id.includes('text')) {
+                    el.style.display = 'none';
+                    // Also hide the next/previous sibling if they are part of the same block
+                    const sibling = id.includes('title') ? el.nextElementSibling : el.previousElementSibling;
+                    if (sibling && (!sibling.innerText || sibling.innerText === "")) {
+                        sibling.style.display = 'none';
+                    }
+                } else {
+                    el.innerText = "";
+                }
+            } else {
+                el.style.display = '';
+                // Use innerHTML for titles to support entities/rendering fixes
+                if (id.includes('title')) {
+                    el.innerHTML = text;
+                } else {
+                    el.innerText = text;
+                }
+            }
+        }
     });
 
     // Update button text
