@@ -65,8 +65,11 @@ const translations = {
         f6Detail: "Ο εύκολος συγχρονισμός cloud μέσω Google Drive διασφαλίζει ότι τα δεδομένα σας ταξιδεύουν μαζί σας. Τα αυτόματα κρυπτογραφημένα αντίγραφα ασφαλείας προστατεύουν από απώλεια, διατηρώντας τα πάντα ενημερωμένα σε όλες τις πλατφόρμες σας.",
         galleryTitle: "Οπτική Παρουσίαση",
         techTitle: "Τεχνική Αριστεία",
+        socialMedia: "Social Media",
         footerDevelop: "Αναπτύχθηκε από",
-        chooseLang: "Επιλογή Γλώσσας"
+        chooseLang: "Επιλογή Γλώσσας",
+        privacyPolicy: "Πολιτική Απορρήτου",
+        termsOfService: "Όροι Χρήσης"
     },
     en: {
         title: "Premium Experience, across all platforms.",
@@ -135,7 +138,9 @@ const translations = {
         galleryTitle: "Visual Showcase",
         techTitle: "Technical Excellence",
         footerDevelop: "Developed by",
-        chooseLang: "Choose Language"
+        chooseLang: "Choose Language",
+        privacyPolicy: "Privacy Policy",
+        termsOfService: "Terms of Service"
     },
     de: {
         title: "Premium-Erlebnis auf allen Plattformen.",
@@ -204,7 +209,9 @@ const translations = {
         galleryTitle: "Visuelle Präsentation",
         techTitle: "Technische Exzellenz",
         footerDevelop: "Entwickelt von",
-        chooseLang: "Sprache wählen"
+        chooseLang: "Sprache wählen",
+        privacyPolicy: "Datenschutzerklärung",
+        termsOfService: "Nutzungsbedingungen"
     },
     fr: {
         title: "Expérience Premium, sur toutes les plateformes.",
@@ -273,7 +280,9 @@ const translations = {
         galleryTitle: "Présentation Visuelle",
         techTitle: "Excellence Technique",
         footerDevelop: "Développé par",
-        chooseLang: "Choisir la langue"
+        chooseLang: "Choisir la langue",
+        privacyPolicy: "Politique de Confidentialité",
+        termsOfService: "Conditions d'Utilisation"
     },
     es: {
         title: "Experiencia Premium, en todas las plataformas.",
@@ -342,7 +351,9 @@ const translations = {
         galleryTitle: "Vitrina Visual",
         techTitle: "Excelencia Técnica",
         footerDevelop: "Desarrollado por",
-        chooseLang: "Elegir Idioma"
+        chooseLang: "Elegir Idioma",
+        privacyPolicy: "Política de Privacidad",
+        termsOfService: "Términos de Servicio"
     },
     it: {
         title: "Esperienza Premium, su tutte le piattaforme.",
@@ -411,7 +422,9 @@ const translations = {
         galleryTitle: "Vetrina Visuale",
         techTitle: "Eccellenza Tecnica",
         footerDevelop: "Sviluppato da",
-        chooseLang: "Scegli Lingua"
+        chooseLang: "Scegli Lingua",
+        privacyPolicy: "Informativa sulla Privacy",
+        termsOfService: "Termini di Servizio"
     },
     ru: {
         title: "Премиальный опыт на всех платформах.",
@@ -480,7 +493,9 @@ const translations = {
         galleryTitle: "Визуальный Обзор",
         techTitle: "Техническое Совершенство",
         footerDevelop: "Разработано",
-        chooseLang: "Выбрать Язык"
+        chooseLang: "Выбрать Язык",
+        privacyPolicy: "Политика конфиденциальности",
+        termsOfService: "Условия использования"
     },
     zh: {
         title: "全平台的卓越体验。",
@@ -549,7 +564,9 @@ const translations = {
         galleryTitle: "视觉展示",
         techTitle: "技术卓越",
         footerDevelop: "开发者",
-        chooseLang: "选择语言"
+        chooseLang: "选择语言",
+        privacyPolicy: "隐私政策",
+        termsOfService: "服务条款"
     },
     hi: {
         title: "प्रीमियम अनुभव, सभी प्लेटफार्मों पर।",
@@ -614,7 +631,9 @@ const translations = {
         f3Detail: "कच्चे डेटा को शक्तिशाली दृश्य बुद्धि में बदलें।",
         f4Detail: "एक ही डैशबोर्ड से पूरे बेड़े का प्रबंधन करें।",
         f5Detail: "बायोमेट्रिक प्रमाणीकरण के साथ सुरक्षा।",
-        f6Detail: "Google ड्राइव के माध्यम से आसान सिंक।"
+        f6Detail: "Google ड्राइव के माध्यम से आसान सिंक।",
+        privacyPolicy: "गोपनीयता नीति",
+        termsOfService: "सेवा की शर्तें"
     }
 };
 
@@ -742,7 +761,11 @@ function updateLanguage(lang) {
     // Update Footer Text
     const footerText = document.getElementById('footer-text');
     if (footerText) {
-        footerText.innerHTML = `© 2026 Fuel Operation Tracker. ${t.footerDevelop} <a href="https://github.com/kwstas147">kwstas147</a>`;
+        footerText.innerHTML = `© 2026 Fuel Operation Tracker. ${t.footerDevelop} <a href="https://github.com/kwstas147">kwstas147</a><br>
+        <div class="footer-legal">
+            <a href="privacy.html" id="link-privacy">${t.privacyPolicy}</a> • 
+            <a href="terms.html" id="link-terms">${t.termsOfService}</a>
+        </div>`;
     }
 
     if (window.lucide) lucide.createIcons();

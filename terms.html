@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Fuel Operation Tracker</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .legal-content {
+            padding: 120px 5% 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .legal-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        .legal-card h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: block;
+        }
+        .legal-card h2 {
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+        .legal-card h3 {
+            margin: 25px 0 15px;
+            color: var(--primary);
+        }
+        .legal-card p, .legal-card li {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        .legal-card ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--glass-border);
+            margin: 40px 0;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <img src="assets/fuel.png" alt="Logo" id="app-logo-nav">
+                <span class="app-name">Fuel Operation Tracker</span>
+            </a>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="glass-btn">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="legal-content">
+        <a href="index.html" class="back-link">
+            <i data-lucide="arrow-left"></i> Επιστροφή / Back
+        </a>
+        <div class="legal-card animate-up">
+            <h1>Terms of Service</h1>
+            <span class="last-updated">Τελευταία Ενημέρωση / Last Updated: 07/04/2026</span>
+            
+            <div class="lang-section">
+                <h2>[English Version]</h2>
+                <h3>1. Acceptance of Terms</h3>
+                <p>By using "Fuel Operation Tracker" (the "App"), you agree to these Terms of Service. If you do not agree, do not use the App.</p>
+
+                <h3>2. "Pro" Subscriptions</h3>
+                <ul>
+                    <li>The App offers a "Pro" subscription that unlocks unlimited machines, cloud synchronization, and removes ads.</li>
+                    <li>Subscriptions are managed via <strong>RevenueCat</strong> and are billed through the Apple App Store or Google Play Store.</li>
+                    <li>Refunds are subject to the policies of the respective app stores.</li>
+                </ul>
+
+                <h3>3. Use of Data & Disclaimer</h3>
+                <ul>
+                    <li>The App provides calculations for fuel consumption, costs, and maintenance predictions. These are estimates based on user input.</li>
+                    <li>The developer is NOT liable for any decisions made based on these estimations or for any financial losses or mechanical issues.</li>
+                    <li>You are responsible for regularly backing up your data (locally or via Cloud Sync).</li>
+                </ul>
+
+                <h3>4. Intellectual Property</h3>
+                <p>All code, designs, and original content of the App are the property of the developer. No part of the App can be reproduced or modified without permission.</p>
+            </div>
+
+            <hr>
+
+            <div class="lang-section">
+                <h2>[Ελληνική Έκδοση]</h2>
+                <h3>1. Αποδοχή Όρων</h3>
+                <p>Χρησιμοποιώντας την εφαρμογή "Fuel Operation Tracker" (η "Εφαρμογή"), συμφωνείτε με τους παρόντες Όρους Χρήσης. Εάν δεν συμφωνείτε, μην χρησιμοποιείτε την Εφαρμογή.</p>
+
+                <h3>2. "Pro" Συνδρομές</h3>
+                <ul>
+                    <li>Η Εφαρμογή προσφέρει "Pro" συνδρομή που ξεκλειδώνει απεριόριστα μηχανήματα, συγχρονισμό στο cloud και αφαιρεί τις διαφημίσεις.</li>
+                    <li>Οι συνδρομές διαχειρίζονται μέσω του <strong>RevenueCat</strong> και η χρέωση γίνεται μέσω του Apple App Store ή του Google Play Store.</li>
+                    <li>Οι επιστροφές χρημάτων υπόκεινται στις πολιτικές των αντίστοιχων καταστημάτων εφαρμογών.</li>
+                </ul>
+
+                <h3>3. Χρήση Δεδομένων & Αποποίηση Ευθύνης</h3>
+                <ul>
+                    <li>Η Εφαρμογή παρέχει υπολογισμούς για την κατανάλωση καυσίμου, τα έξοδα και προβλέψεις συντήρησης. Αυτοί είναι εκτιμήσεις βασισμένες στα δεδομένα που εισάγει ο χρήστης.</li>
+                    <li>Ο δημιουργός ΔΕΝ φέρει ευθύνη για αποφάσεις που λαμβάνονται βάσει αυτών των εκτιμήσεων ή για οποιαδήποτε οικονομική απώλεια ή μηχανικό πρόβλημα.</li>
+                    <li>Είστε υπεύθυνοι για την τακτική δημιουργία αντιγράφων ασφαλείας των δεδομένων σας (τοπικά ή μέσω Cloud Sync).</li>
+                </ul>
+
+                <h3>4. Πνευματική Ιδιοκτησία</h3>
+                <p>Όλος ο κώδικας, τα σχέδια και το πρωτότυπο περιεχόμενο της Εφαρμογής αποτελούν ιδιοκτησία του δημιουργού. Απαγορεύεται η αναπαραγωγή ή η τροποποίηση οποιουδήποτε μέρους της Εφαρμογής χωρίς άδεια.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="footer-text">
+            © 2026 Fuel Operation Tracker. Αναπτύχθηκε από <a href="https://github.com/kwstas147">kwstas147</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Theme Logic for Legal Pages
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
+
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        body.className = savedTheme;
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
+            body.className = newTheme;
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark-mode') {
+                themeIcon.setAttribute('data-lucide', 'sun');
+            } else {
+                themeIcon.setAttribute('data-lucide', 'moon');
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        window.lucide && lucide.createIcons();
+    </script>
+</body>
+</html>

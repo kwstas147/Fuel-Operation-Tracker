@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Fuel Operation Tracker</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .legal-content {
+            padding: 120px 5% 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .legal-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        .legal-card h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: block;
+        }
+        .legal-card h2 {
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+        .legal-card h3 {
+            margin: 25px 0 15px;
+            color: var(--primary);
+        }
+        .legal-card h4 {
+            margin: 15px 0 10px;
+            color: var(--text-primary);
+        }
+        .legal-card p, .legal-card li {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        .legal-card ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--glass-border);
+            margin: 40px 0;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <img src="assets/fuel.png" alt="Logo" id="app-logo-nav">
+                <span class="app-name">Fuel Operation Tracker</span>
+            </a>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="glass-btn">
+                    <i data-lucide="moon" id="theme-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="legal-content">
+        <a href="index.html" class="back-link">
+            <i data-lucide="arrow-left"></i> Επιστροφή / Back
+        </a>
+        <div class="legal-card animate-up">
+            <h1>Privacy Policy</h1>
+            <span class="last-updated">Τελευταία Ενημέρωση / Last Updated: 07/04/2026</span>
+            
+            <div class="lang-section">
+                <h2>[English Version]</h2>
+                <h3>1. Introduction</h3>
+                <p>"Fuel Operation Tracker" (the "App") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your data.</p>
+
+                <h3>2. Data Collection & Processing</h3>
+                <p>The App is designed as a <strong>privacy-first</strong> tool. Most processing occurs locally on your device.</p>
+                
+                <h4>2.1 Local Storage</h4>
+                <ul>
+                    <li>All machinery logs, fuel entries, and costs are stored locally in an <strong>encrypted database (SQLCipher)</strong>.</li>
+                    <li><strong>Biometrics/PIN</strong>: We use native device APIs for security. We do not store biometric data.</li>
+                </ul>
+
+                <h4>2.2 Third-Party Services</h4>
+                <p>To provide our services, we use the following providers:</p>
+                <ul>
+                    <li><strong>RevenueCat</strong>: Used for managing "Pro" subscriptions. It processes anonymous purchase identifiers to verify your premium status. It does not collect personal identity info.</li>
+                    <li><strong>Google Mobile Ads (AdMob)</strong>: Used to display ads to free-tier users. It may collect device identifiers (advertising ID) and usage data to serve relevant ads.</li>
+                    <li><strong>Google Drive (Cloud Sync)</strong>: If you enable Cloud Synchronization (Pro feature), the app uses your Google account to back up data. This data is stored in your own Google Drive and is not accessible by the developer.</li>
+                    <li><strong>Google ML Kit (OCR)</strong>: Used for scanning text from images. All processing is done <strong>on-device</strong>. No images are sent to external servers.</li>
+                </ul>
+
+                <h3>3. Permissions</h3>
+                <ul>
+                    <li><strong>Camera</strong>: Used only for OCR scanning.</li>
+                    <li><strong>Biometrics</strong>: Used for app unlocking.</li>
+                    <li><strong>Storage (External)</strong>: Used for local backups and data exports (Excel/PDF).</li>
+                </ul>
+
+                <h3>4. Data Sharing</h3>
+                <p>We do <strong>not</strong> sell or share your data with third parties for marketing purposes. Data sharing occurs only through the standard functionality of the App (e.g., when you manually export research to Excel or PDF).</p>
+
+                <h3>5. Contact</h3>
+                <p>For any questions, contact us at: <strong>support.fueltracker@gmail.com</strong></p>
+            </div>
+
+            <hr>
+
+            <div class="lang-section">
+                <h2>[Ελληνική Έκδοση]</h2>
+                <h3>1. Εισαγωγή</h3>
+                <p>Η εφαρμογή "Fuel Operation Tracker" (η "Εφαρμογή") δεσμεύεται για την προστασία της ιδιωτικότητάς σας. Η παρούσα Πολιτική Απορρήτου εξηγεί πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τα δεδομένα σας.</p>
+
+                <h3>2. Συλλογή και Επεξεργασία Δεδομένων</h3>
+                <p>Η Εφαρμογή έχει σχεδιαστεί με προτεραιότητα την <strong>ιδιωτικότητα (privacy-first)</strong>. Η περισσότερη επεξεργασία γίνεται τοπικά στη συσκευή σας.</p>
+
+                <h4>2.1 Τοπική Αποθήκευση</h4>
+                <ul>
+                    <li>Όλες οι καταγραφές μηχανημάτων, καυσίμων και εξόδων αποθηκεύονται τοπικά σε μια <strong>κρυπτογραφημένη βάση δεδομένων (SQLCipher)</strong>.</li>
+                    <li><strong>Βιομετρικά/PIN</strong>: Χρησιμοποιούμε τα επίσημα APIs της συσκευής για ασφάλεια. Δεν αποθηκεύουμε βιομετρικά δεδομένα.</li>
+                </ul>
+
+                <h4>2.2 Υπηρεσίες Τρίτων</h4>
+                <p>Για την παροχή των υπηρεσιών μας, χρησιμοποιούμε τους εξής παρόχους:</p>
+                <ul>
+                    <li><strong>RevenueCat</strong>: Χρησιμοποιείται για τη διαχείριση των "Pro" συνδρομών. Επεξεργάζεται ανώνυμα αναγνωριστικά αγοράς για την επαλήθευση της premium κατάστασής σας. Δεν συλλέγει στοιχεία προσωπικής ταυτότητας.</li>
+                    <li><strong>Google Mobile Ads (AdMob)</strong>: Χρησιμοποιείται για την εμφάνιση διαφημίσεων στους χρήστες της δωρεάν έκδοσης. Ενδέχεται να συλλέγει αναγνωριστικά συσκευής (advertising ID) για την προβολή σχετικών διαφημίσεων.</li>
+                    <li><strong>Google Drive (Cloud Sync)</strong>: Εάν ενεργοποιήσετε τον Συγχρονισμό Cloud (Pro feature), η εφαρμογή χρησιμοποιεί τον λογαριασμό σας Google για τη δημιουργία αντιγράφων ασφαλείας. Τα δεδομένα αποθηκεύονται στο δικό σας Google Drive και δεν είναι προσβάσιμα από τον δημιουργό της εφαρμογής.</li>
+                    <li><strong>Google ML Kit (OCR)</strong>: Χρησιμοποιείται για τη σάρωση κειμένου από εικόνες. Όλη η επεξεργασία γίνεται <strong>τοπικά στη συσκευή</strong>. Καμία εικόνα δεν αποστέλλεται σε εξωτερικούς servers.</li>
+                </ul>
+
+                <h3>3. Άδειες (Permissions)</h3>
+                <ul>
+                    <li><strong>Κάμερα</strong>: Χρησιμοποιείται μόνο για τη λειτουργία OCR (σάρωση στοιχείων).</li>
+                    <li><strong>Βιομετρικά</strong>: Χρησιμοποιούνται για το ξεκλείδωμα της εφαρμογής.</li>
+                    <li><strong>Αποθηκευτικός Χώρος</strong>: Χρησιμοποιείται για τοπικά backups και εξαγωγές δεδομένων (Excel/PDF).</li>
+                </ul>
+
+                <h3>4. Διαμοιρασμός Δεδομένων</h3>
+                <p><strong>Δεν</strong> πουλάμε ούτε μοιραζόμαστε τα δεδομένα σας με τρίτους για διαφημιστικούς σκοπούς. Ο διαμοιρασμός γίνεται μόνο μέσω των λειτουργιών της Εφαρμογής (π.χ. όταν εσείς επιλέξετε να κάνετε export σε Excel ή PDF).</p>
+
+                <h3>5. Επικοινωνία</h3>
+                <p>Για ερωτήσεις, επικοινωνήστε μαζί μας στο: <strong>support.fueltracker@gmail.com</strong></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="footer-text">
+            © 2026 Fuel Operation Tracker. Αναπτύχθηκε από <a href="https://github.com/kwstas147">kwstas147</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Theme Logic for Legal Pages
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
+
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        body.className = savedTheme;
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
+            body.className = newTheme;
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark-mode') {
+                themeIcon.setAttribute('data-lucide', 'sun');
+            } else {
+                themeIcon.setAttribute('data-lucide', 'moon');
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        window.lucide && lucide.createIcons();
+    </script>
+</body>
+</html>
