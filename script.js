@@ -69,7 +69,8 @@ const translations = {
         footerDevelop: "Αναπτύχθηκε από",
         chooseLang: "Επιλογή Γλώσσας",
         privacyPolicy: "Πολιτική Απορρήτου",
-        termsOfService: "Όροι Χρήσης"
+        termsOfService: "Όροι Χρήσης",
+        playStore: "Λήψη στο Google Play"
     },
     en: {
         title: "Premium Experience, across all platforms.",
@@ -140,7 +141,8 @@ const translations = {
         footerDevelop: "Developed by",
         chooseLang: "Choose Language",
         privacyPolicy: "Privacy Policy",
-        termsOfService: "Terms of Service"
+        termsOfService: "Terms of Service",
+        playStore: "Get it on Google Play"
     },
     de: {
         title: "Premium-Erlebnis auf allen Plattformen.",
@@ -211,7 +213,8 @@ const translations = {
         footerDevelop: "Entwickelt von",
         chooseLang: "Sprache wählen",
         privacyPolicy: "Datenschutzerklärung",
-        termsOfService: "Nutzungsbedingungen"
+        termsOfService: "Nutzungsbedingungen",
+        playStore: "Download bei Google Play"
     },
     fr: {
         title: "Expérience Premium, sur toutes les plateformes.",
@@ -282,7 +285,8 @@ const translations = {
         footerDevelop: "Développé par",
         chooseLang: "Choisir la langue",
         privacyPolicy: "Politique de Confidentialité",
-        termsOfService: "Conditions d'Utilisation"
+        termsOfService: "Conditions d'Utilisation",
+        playStore: "Télécharger sur Google Play"
     },
     es: {
         title: "Experiencia Premium, en todas las plataformas.",
@@ -353,7 +357,8 @@ const translations = {
         footerDevelop: "Desarrollado por",
         chooseLang: "Elegir Idioma",
         privacyPolicy: "Política de Privacidad",
-        termsOfService: "Términos de Servicio"
+        termsOfService: "Términos de Servicio",
+        playStore: "Descargar en Google Play"
     },
     it: {
         title: "Esperienza Premium, su tutte le piattaforme.",
@@ -424,7 +429,8 @@ const translations = {
         footerDevelop: "Sviluppato da",
         chooseLang: "Scegli Lingua",
         privacyPolicy: "Informativa sulla Privacy",
-        termsOfService: "Termini di Servizio"
+        termsOfService: "Termini di Servizio",
+        playStore: "Scarica su Google Play"
     },
     ru: {
         title: "Премиальный опыт на всех платформах.",
@@ -495,7 +501,8 @@ const translations = {
         footerDevelop: "Разработано",
         chooseLang: "Выбрать Язык",
         privacyPolicy: "Политика конфиденциальности",
-        termsOfService: "Условия использования"
+        termsOfService: "Условия использования",
+        playStore: "Скачать в Google Play"
     },
     zh: {
         title: "全平台的卓越体验。",
@@ -566,7 +573,8 @@ const translations = {
         footerDevelop: "开发者",
         chooseLang: "选择语言",
         privacyPolicy: "隐私政策",
-        termsOfService: "服务条款"
+        termsOfService: "服务条款",
+        playStore: "在 Google Play 下载"
     },
     hi: {
         title: "प्रीमियम अनुभव, सभी प्लेटफार्मों पर।",
@@ -632,8 +640,11 @@ const translations = {
         f4Detail: "एक ही डैशबोर्ड से पूरे बेड़े का प्रबंधन करें।",
         f5Detail: "बायोमेट्रिक प्रमाणीकरण के साथ सुरक्षा।",
         f6Detail: "Google ड्राइव के माध्यम से आसान सिंक।",
+        footerDevelop: "विकसित किया गया",
+        chooseLang: "भाषा चुनें",
         privacyPolicy: "गोपनीयता नीति",
-        termsOfService: "सेवा की शर्तें"
+        termsOfService: "सेवा की शर्तें",
+        playStore: "Google Play से डाउनलोड करें"
     }
 };
 
@@ -757,6 +768,9 @@ function updateLanguage(lang) {
     
     const exploreBtn = document.getElementById('explore-features-btn');
     if (exploreBtn) exploreBtn.innerText = t.explore;
+
+    const playStoreBtn = document.getElementById('play-store-btn');
+    if (playStoreBtn) playStoreBtn.innerHTML = `<i data-lucide="play"></i> ${t.playStore}`;
 
     // Update Footer Text
     const footerText = document.getElementById('footer-text');
