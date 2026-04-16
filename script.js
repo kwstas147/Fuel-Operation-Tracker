@@ -779,7 +779,7 @@ langSelector.value = savedLang;
 const gallery = document.getElementById('screenshots-gallery');
 if (gallery) {
     gallery.innerHTML = ''; 
-    for (let i = 1; i <= 16; i++) {
+    for (let i = 1; i <= 14; i++) {
         const card = document.createElement('div');
         card.className = 'screenshot-card';
         card.innerHTML = `
