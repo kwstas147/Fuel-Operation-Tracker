@@ -712,3 +712,49 @@ if (btnPrev && btnNext && scrollArea) {
         scrollArea.scrollBy({ left: 400, behavior: 'smooth' });
     });
 }
+
+// GDPR Cookie Consent Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('gdpr-cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const declineBtn = document.getElementById('cookie-decline');
+
+    if (!cookieBanner) return;
+
+    // Check if consent has already been given or denied
+    const consent = localStorage.getItem('gdpr_cookie_consent');
+    
+    if (!consent) {
+        // Show banner if no choice was made
+        cookieBanner.style.display = 'flex';
+    } else if (consent === 'granted') {
+        // Grant analytics if previously accepted
+        grantAnalytics();
+    } // If denied, it defaults to denied by the HTML snippet
+
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('gdpr_cookie_consent', 'granted');
+            cookieBanner.style.display = 'none';
+            grantAnalytics();
+        });
+    }
+
+    if (declineBtn) {
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem('gdpr_cookie_consent', 'denied');
+            cookieBanner.style.display = 'none';
+        });
+    }
+
+    function grantAnalytics() {
+        if (typeof gtag === 'function') {
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted',
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+            });
+        }
+    }
+});

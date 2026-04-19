@@ -14,16 +14,24 @@
     <!-- Font Awesome for premium icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Lucide Icons (Legacy Support) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Consent Mode (GDPR) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Προεπιλογή: ΟΛΑ ΑΠΕΝΕΡΓΟΠΟΙΗΜΕΝΑ πριν τη συγκατάθεση
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
+    </script>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YELB7NJTKV"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-YELB7NJTKV');
     </script>
     
@@ -285,6 +293,18 @@
             <p id="footer-text">© 2026 Fuel Operation Tracker. Developed by <a href="https://github.com/kwstas147">kwstas147</a></p>
         </div>
     </footer>
+
+    <!-- GDPR Cookie Banner -->
+    <div id="gdpr-cookie-banner" class="cookie-banner glass-card" style="display: none;">
+        <div class="cookie-content">
+            <h4>We value your privacy</h4>
+            <p>We use cookies to analyze site traffic and improve your experience. Your data is anonymized.</p>
+        </div>
+        <div class="cookie-actions">
+            <button id="cookie-accept" class="btn btn-primary">Accept</button>
+            <button id="cookie-decline" class="btn btn-secondary">Decline</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
