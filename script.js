@@ -1,148 +1,43 @@
 const translations = {
     el: {
-        title: "Premium Εμπειρία, σε όλες τις πλατφόρμες.",
-        subtitle: "Ο απόλυτος ιχνηλάτης καυσίμων για Android, iOS, Web και Desktop. Ασφαλές, πολύγλωσσο και με Cupertino αισθητική.",
-        viewRepo: "Δείτε το Repository",
-        explore: "Εξερευνήστε τις Δυνατότητες",
-        featuresTitle: "Βασικά Χαρακτηριστικά",
-        howTitle: "Πώς Λειτουργεί",
-        step1Title: "Λήψη",
-        step1Desc: "Κατεβάστε την εφαρμογή για την πλατφόρμα της επιλογής σας.",
-        step2Title: "Γρήγορη Ρύθμιση",
-        step2Desc: "Προσθέστε το όχημά σας και ορίστε τις προτιμήσεις σας.",
-        step3Title: "Ξεκινήστε την Καταγραφή",
-        step3Desc: "Καταγράψτε τον πρώτο σας ανεφοδιασμό και δείτε τη μαγεία.",
-        privacyTitle: "Προτεραιότητα στην Ιδιωτικότητα",
-        p1Title: "Τοπική Αποθήκευση",
-        p1Desc: "Όλα τα δεδομένα αποθηκεύονται τοπικά στη συσκευή σας από προεπιλογή.",
-        p2Title: "Καμία Παρακολούθηση",
-        p2Desc: "Δεν συλλέγουμε ούτε πουλάμε τα προσωπικά σας στοιχεία.",
-        pricingMainTitle: "Επιλέξτε το Πρόγραμμά σας",
-        pricingSubtitle: "\u039E\u03B5\u03BA\u03B9\u03BD\u03AE\u03C3\u03C4\u03B5 \u03B4\u03C9\u03C1\u03B5\u03AC\u03BD, \u03B1\u03BD\u03B1\u03B2\u03B1\u03B8\u03BC\u03AF\u03C3\u03C4\u03B5 \u03B3\u03B9\u03B1 \u03B5\u03C0\u03B1\u03B3\u03B3\u03B5\u03BB\u03BC\u03B1\u03C4\u03B9\u03BA\u03AD\u03C2 \u03B4\u03C5\u03BD\u03B1\u03C4\u03CC\u03C4\u03B7\u03C4\u03B5\u03C2.",
-        freeName: "\u0394\u03C9\u03C1\u03B5\u03AC\u03BD",
-        freePrice: "€0",
-        freeF1: "Έως 3 Οχήματα",
-        freeF2: "Βασική Καταγραφή",
-        freeF3: "Τοπική Αποθήκευση",
-        freeF4: "Στατιστικά",
-        freeF5: "Εξαγωγή Excel",
-        freeF6: "Χωρίς Διαφημίσεις",
-        freeDetailsTitle: "\u0391\u03BD\u03AC\u03BB\u03C5\u03C3\u03B7 <span style=\"-webkit-text-fill-color: var(--primary); text-fill-color: var(--primary); font-weight: 700;\">\u0394\u03C9\u03C1\u03B5\u03AC\u03BD</span> \u03A0\u03BB\u03AC\u03BD\u03BF\u03C5",
-        freeProsTitle: "Πλεονεκτήματα",
-        freeProsText: "Μηδενικό κόστος, ιδανικό για προσωπική χρήση και βασική παρακολούθηση με πλήρη ιδιωτικότητα.",
-        freeConsTitle: "Περιορισμοί",
-        freeConsText: "Περιορισμό σε 3 οχήματα και έλλειψη προηγμένων στατιστικών ή συγχρονισμού cloud.",
-        premiumName: "Premium",
-        premiumPrice: "PRO",
-        premiumF1: "Απεριόριστα Οχήματα",
-        premiumF2: "Προηγμένα Στατιστικά",
-        premiumF3: "Αναφορές Excel & PDF",
-        premiumF4: "Κόμβος Συντήρησης",
-        premiumF5: "Συγχρονισμός & Αντίγραφα στο Cloud",
-        premiumF6: "Χωρίς Διαφημίσεις",
-        premiumDetailsTitle: "Ανάλυση Premium Πλάνου",
-        premiumProsTitle: "Πλεονεκτήματα",
-        premiumProsText: "\u2022 \u0391\u03C0\u03B5\u03C1\u03B9\u03CC\u03C1\u03B9\u03C3\u03C4\u03B7 \u03BA\u03B1\u03C4\u03B1\u03C7\u03CE\u03C1\u03B7\u03C3\u03B7 \u03BF\u03C7\u03B7\u03BC\u03AC\u03C4\u03C9\u03BD & \u03BF\u03B4\u03B7\u03B3\u03CE\u03BD<br>\u2022 \u03A0\u03C1\u03BF\u03B7\u03B3\u03BC\u03AD\u03BD\u03B7 \u03B5\u03C5\u03C6\u03C5\u03AF\u03B1 \u03B4\u03B5\u03B4\u03BF\u03BC\u03AD\u03BD\u03C9\u03BD & analytics<br>\u2022 \u0391\u03C5\u03C4\u03CC\u03BC\u03B1\u03C4\u03BF\u03C2 \u03C3\u03C5\u03B3\u03C7\u03C1\u03BF\u03BD\u03B9\u03C3\u03BC\u03CC\u03C2 \u03C3\u03C4\u03BF Cloud<br>\u2022 \u039B\u03B5\u03C0\u03C4\u03BF\u03BC\u03B5\u03C1\u03B5\u03AF\u03C2 \u03B1\u03BD\u03B1\u03C6\u03BF\u03C1\u03AD\u03C2 Excel/PDF<br>\u2022 \u0388\u03BE\u03C5\u03C0\u03BD\u03B5\u03C2 \u03B5\u03B9\u03B4\u03BF\u03C0\u03BF\u03B9\u03AE\u03C3\u03B5\u03B9\u03C2 \u03C3\u03C5\u03BD\u03C4\u03AE\u03C1\u03B7\u03C3\u03B7\u03C2<br>\u2022 \u03A0\u03BB\u03AE\u03C1\u03B7\u03C2 \u03B1\u03C0\u03BF\u03C5\u03C3\u03AF\u03B1 \u03B4\u03B9\u03B1\u03C6\u03B7\u03BC\u03AF\u03C3\u03B5\u03C9\u03BD",
-        premiumConsTitle: "",
-        premiumConsText: "",
-        f1Title: "Καταγραφή Καυσίμων",
-        f1Desc: "Καταγράψτε κάθε ανεφοδιασμό με λεπτομερή αναλυτικά στοιχεία και παρακολούθηση κόστους.",
-        f2Title: "Συντήρηση",
-        f2Desc: "Μην χάνετε ποτέ το σέρβις με έξυπνα αρχεία για λάδια, ελαστικά και άλλα.",
-        f3Title: "Στατιστικά",
-        f3Desc: "Οπτικά γραφήματα που δείχνουν τις τάσεις κατανάλωσης ανά πάσα στιγμή.",
-        f4Title: "Πολλαπλά Οχήματα",
-        f4Desc: "Διαχειριστείτε πολλά οχήματα ή έναν ολόκληρο στόλο σε μία εφαρμογή.",
-        f5Title: "Ασφάλεια",
-        f5Desc: "Βιομετρικό κλείδωμα και κρυπτογράφηση SQLCipher για τα δεδομένα σας.",
-        f6Title: "Google Cloud",
-        f6Desc: "Ασφαλή αντίγραφα ασφαλείας στο cloud για να διατηρείτε τα δεδομένα σας σε όλες τις συσκευές.",
-        f1Detail: "Ολοκληρωμένη καταγραφή καυσίμων με αναλύσεις κόστους σε πραγματικό χρόνο, μοτίβα κατανάλωσης και αναλύσεις εξόδων ανά χιλιόμετρο. Παρακολουθήστε κάθε ανεφοδιασμό με ακρίβεια — από την τιμή ανά λίτρο έως τη συνολική δαπάνη — και αποκτήστε πρακτικές πληροφορίες για να βελτιστοποιήσετε τον προϋπολογισμό των καυσίμων σας.",
-        f2Detail: "Ένας έξυπνος κόμβος συντήρησης που διατηρεί το όχημά σας σε άριστη κατάσταση. Προγραμματίστε αλλαγές λαδιών, ελαστικών, ελέγχους φρένων και άλλα με έξυπνες υπενθυμίσεις. Πλήρες ιστορικό σέρβις στα χέρια σας — μην χάσετε ποτέ ξανά σημαντική συντήρηση.",
-        f3Detail: "Μετατρέψτε τα ανεξάρτητα δεδομένα σε ισχυρή οπτική νοημοσύνη. Διαδραστικά γραφήματα αποκαλύπτουν τάσεις κατανάλωσης, συγκρίσεις κόστους και μετρήσεις απόδοσης. Πάρτε αποφάσεις βάσει δεδομένων με επαγγελματικά αναλυτικά στοιχεία.",
-        f4Detail: "Διαχειριστείτε απρόσκοπτα ολόκληρο τον στόλο σας από έναν πίνακα. Είτε έχετε δύο αυτοκίνητα είτε επαγγελματικό στόλο, κάντε εναλλαγή μεταξύ οχημάτων άμεσα με ενοποιημένα αναλυτικά στοιχεία και ανεξάρτητη παρακολούθηση για το καθένα.",
-        f5Detail: "Προστασία εταιρικού επιπέδου με βιομετρικό έλεγχο ταυτότητας και κρυπτογράφηση SQLCipher AES-256 στρατιωτικών προδιαγραφών. Τα ευαίσθητα δεδομένα σας παραμένουν απολύτως ασφαλή — προσβάσιμα μόνο από εσάς.",
-        f6Detail: "Ο εύκολος συγχρονισμός cloud μέσω Google Drive διασφαλίζει ότι τα δεδομένα σας ταξιδεύουν μαζί σας. Τα αυτόματα κρυπτογραφημένα αντίγραφα ασφαλείας προστατεύουν από απώλεια, διατηρώντας τα πάντα ενημερωμένα σε όλες τις πλατφόρμες σας.",
-        galleryTitle: "Οπτική Παρουσίαση",
-        techTitle: "Τεχνική Αριστεία",
-        socialMedia: "Social Media",
-        footerDevelop: "Αναπτύχθηκε από",
-        chooseLang: "Επιλογή Γλώσσας",
-        privacyPolicy: "Πολιτική Απορρήτου",
-        termsOfService: "Όροι Χρήσης",
-        playStore: "Λήψη στο Google Play"
+        title: "Κάθε Σταγόνα Μετράει, <br><span class='gradient-text'>Κάθε Έξοδο Υπό Έλεγχο.</span>",
+        subtitle: "Ο #1 Επαγγελματικός Ιχνηλάτης Καυσίμων & Συντήρησης. Σχεδιασμένος με Elite Cupertino αισθητική για Παγκόσμια Απόδοση.",
+        featuresTitle: "Εταιρικές Δυνατότητες",
+        featuresSubtitle: "Εργαλεία ακριβείας για τον σύγχρονο οδηγό.",
+        f1Title: "Smart Fuel Finder",
+        f1Desc: "Τιμές καυσίμων σε πραγματικό χρόνο και διαδραστικός χάρτης για τις καλύτερες προσφορές.",
+        f2Title: "Maintenance Hub",
+        f2Desc: "Μην χάσετε ποτέ το σέρβις. Έξυπνες υπενθυμίσεις και πλήρες ιστορικό.",
+        f3Title: "Advanced Analytics",
+        f3Desc: "Οπτικά γραφήματα και λεπτομερείς αναφορές για την απόδοση του οχήματός σας.",
+        f4Title: "Biometric Security",
+        f4Desc: "Κρυπτογραφημένη αποθήκευση και βιομετρικό κλείδωμα για απόλυτη ασφάλεια.",
+        testimonialsTitle: "Εμπιστοσύνη Διεθνώς",
+        galleryTitle: "Visual Showcase",
+        playStore: "Download Now",
+        footerDevelop: "Developed by",
+        privacyPolicy: "Privacy Policy",
+        termsOfService: "Terms of Service"
     },
     en: {
-        title: "Premium Experience, across all platforms.",
-        subtitle: "The ultimate fuel tracker for Android, iOS, Web, and Desktop. Secure, multilingual, and Cupertino-styled.",
-        viewRepo: "View Repository",
-        explore: "Explore Features",
-        featuresTitle: "Core Features",
-        howTitle: "How it Works",
-        step1Title: "Download",
-        step1Desc: "Get the app for your preferred platform.",
-        step2Title: "Quick Setup",
-        step2Desc: "Add your vehicle and set your preferences.",
-        step3Title: "Start Tracking",
-        step3Desc: "Log your first fill-up and see the magic.",
-        privacyTitle: "Privacy First",
-        p1Title: "Offline First",
-        p1Desc: "All data is stored locally on your device by default.",
-        p2Title: "No Tracking",
-        p2Desc: "We don't collect or sell your personal information.",
-        pricingMainTitle: "Choose Your Plan",
-        pricingSubtitle: "Start for free, upgrade for professional features.",
-        freeName: "Free",
-        freePrice: "€0",
-        freeF1: "Up to 3 Vehicles",
-        freeF2: "Basic Fuel Tracking",
-        freeF3: "Secure Local Storage",
-        freeF4: "Professional Statistics",
-        freeF5: "Excel/PDF Export",
-        freeF6: "Ad-Free Experience",
-        freeDetailsTitle: "Free Plan Analysis",
-        freeProsTitle: "Advantages",
-        freeProsText: "Zero cost forever, ideal for personal use and basic tracking with 100% privacy.",
-        freeConsTitle: "Disadvantages",
-        freeConsText: "Limited to 3 vehicles and misses out on advanced analytics or cloud synchronization.",
-        premiumName: "Premium",
-        premiumPrice: "PRO",
-        premiumF1: "Unlimited Vehicles",
-        premiumF2: "Advanced Statistics",
-        premiumF3: "Excel & PDF Reports",
-        premiumF4: "Maintenance Hub",
-        premiumF5: "Cloud Sync & Backup",
-        premiumF6: "No Advertisements",
-        premiumDetailsTitle: "Premium Plan Analysis",
-        premiumProsTitle: "Advantages",
-        premiumProsText: "Full fleet control, professional data intelligence and peace of mind via cloud sync.",
-        premiumConsTitle: "",
-        premiumConsText: "",
-        f1Title: "Fuel Tracking",
-        f1Desc: "Log every fill-up with detailed analytics and cost tracking.",
-        f2Title: "Maintenance",
-        f2Desc: "Never miss a service with smart logs for oils, tires, and more.",
-        f3Title: "Statistics",
-        f3Desc: "Visual graphs showing your consumption trends over time.",
-        f4Title: "Multi-Vehicle",
-        f4Desc: "Manage multiple vehicles or a whole fleet in one app.",
-        f5Title: "Security",
-        f5Desc: "Biometric locking and SQLCipher encryption for your data.",
-        f6Title: "Google Cloud",
-        f6Desc: "Secure cloud backups to keep your data safe across devices.",
-        f1Detail: "Comprehensive fuel logging with real-time cost analytics, consumption patterns, and per-kilometer expense breakdowns. Track every fill-up with precision and gain actionable insights to optimize your fuel budget.",
-        f2Detail: "A smart maintenance hub that keeps your vehicle in peak condition. Schedule oil changes, tire rotations, brake inspections, and more with intelligent reminders. Full service history at your fingertips.",
-        f3Detail: "Transform raw data into powerful visual intelligence. Interactive charts and graphs reveal consumption trends, cost comparisons, and efficiency metrics over custom time periods.",
-        f4Detail: "Seamlessly manage your entire fleet from a single dashboard. Whether you own two cars or operate a commercial fleet, switch between vehicles instantly with unified analytics.",
-        f5Detail: "Enterprise-grade protection powered by biometric authentication and military-standard SQLCipher AES-256 encryption. Your sensitive data remains completely secure and accessible only by you.",
-        f6Detail: "Effortless cloud synchronization via Google Drive ensures your data travels with you. Automatic encrypted backups protect against data loss across all your platforms.",
+        title: "Track Every Drop, <br><span class='gradient-text'>Master Your Expenses.</span>",
+        subtitle: "The #1 Professional Fuel & Maintenance Tracker. Built with Elite Cupertino Aesthetics for Global Efficiency.",
+        featuresTitle: "Enterprise Features",
+        featuresSubtitle: "Precision tools designed for the modern driver.",
+        f1Title: "Smart Fuel Finder",
+        f1Desc: "Real-time fuel prices and interactive map to find the best deals around you.",
+        f2Title: "Maintenance Hub",
+        f2Desc: "Never miss a service. Automated reminders and comprehensive log history.",
+        f3Title: "Advanced Analytics",
+        f3Desc: "Visual graphs and detailed reports on your vehicle's performance and expenses.",
+        f4Title: "Biometric Security",
+        f4Desc: "Your data, your eyes only. Encrypted storage and biometric locking mechanisms.",
+        testimonialsTitle: "Trusted Worldwide",
         galleryTitle: "Visual Showcase",
-        techTitle: "Technical Excellence",
+        playStore: "Download Now",
         footerDevelop: "Developed by",
-        chooseLang: "Choose Language",
         privacyPolicy: "Privacy Policy",
-        termsOfService: "Terms of Service",
-        playStore: "Get it on Google Play"
+        termsOfService: "Terms of Service"
     },
     de: {
         title: "Premium-Erlebnis auf allen Plattformen.",
@@ -684,93 +579,32 @@ function updateLanguage(lang) {
     const t = translations[lang];
     if (!t) return;
     
-    // Smooth update for title and subtitle
-    const heroTitle = document.getElementById('hero-title');
-    const heroSubtitle = document.getElementById('hero-subtitle');
-    
-    if (heroTitle) {
-        heroTitle.innerHTML = t.title.includes(',') 
-            ? t.title.replace(',', ', <br><span class="gradient-text">') + '</span>'
-            : t.title;
-    }
-        
-    if (heroSubtitle) heroSubtitle.innerText = t.subtitle;
-    
     // Update IDs
     const elementsToTranslate = [
+        ['hero-title', t.title],
+        ['hero-subtitle', t.subtitle],
         ['gallery-title', t.galleryTitle],
         ['features-title', t.featuresTitle],
+        ['features-subtitle', t.featuresSubtitle],
         ['f1-title', t.f1Title], ['f1-desc', t.f1Desc],
         ['f2-title', t.f2Title], ['f2-desc', t.f2Desc],
         ['f3-title', t.f3Title], ['f3-desc', t.f3Desc],
         ['f4-title', t.f4Title], ['f4-desc', t.f4Desc],
-        ['f5-title', t.f5Title], ['f5-desc', t.f5Desc],
-        ['f6-title', t.f6Title], ['f6-desc', t.f6Desc],
-        ['f1-detail', t.f1Detail], ['f2-detail', t.f2Detail],
-        ['f3-detail', t.f3Detail], ['f4-detail', t.f4Detail],
-        ['f5-detail', t.f5Detail], ['f6-detail', t.f6Detail],
-        // New sections
-        ['how-title', t.howTitle],
-        ['step1-title', t.step1Title], ['step1-desc', t.step1Desc],
-        ['step2-title', t.step2Title], ['step2-desc', t.step2Desc],
-        ['step3-title', t.step3Title], ['step3-desc', t.step3Desc],
-        ['privacy-title', t.privacyTitle],
-        ['p1-title', t.p1Title], ['p1-desc', t.p1Desc],
-        ['p2-title', t.p2Title], ['p2-desc', t.p2Desc],
-        ['pricing-main-title', t.pricingMainTitle], ['pricing-subtitle', t.pricingSubtitle],
-        ['free-name', t.freeName], ['free-price', t.freePrice],
-        ['free-f1', t.freeF1], ['free-f2', t.freeF2], ['free-f3', t.freeF3],
-        ['free-f4', t.freeF4], ['free-f5', t.freeF5], ['free-f6', t.freeF6],
-        ['premium-name', t.premiumName], ['premium-price', t.premiumPrice],
-        ['premium-f1', t.premiumF1], ['premium-f2', t.premiumF2], ['premium-f3', t.premiumF3],
-        ['premium-f4', t.premiumF4], ['premium-f5', t.premiumF5], ['premium-f6', t.premiumF6],
-        // Pricing Details
-        ['free-details-title', t.freeDetailsTitle],
-        ['free-pros-title', t.freeProsTitle], ['free-pros-text', t.freeProsText],
-        ['free-cons-title', t.freeConsTitle], ['free-cons-text', t.freeConsText],
-        ['premium-details-title', t.premiumDetailsTitle],
-        ['premium-pros-title', t.premiumProsTitle], ['premium-pros-text', t.premiumProsText],
-        ['premium-cons-title', t.premiumConsTitle], ['premium-cons-text', t.premiumConsText]
+        ['testimonials-title', t.testimonialsTitle]
     ];
     
     elementsToTranslate.forEach(([id, text]) => {
         const el = document.getElementById(id);
         if (el) {
-            if (text === "") {
-                // If text is empty, hide the parent section if it's a title/text pair
-                if (id.includes('title') || id.includes('text')) {
-                    el.style.display = 'none';
-                    // Also hide the next/previous sibling if they are part of the same block
-                    const sibling = id.includes('title') ? el.nextElementSibling : el.previousElementSibling;
-                    if (sibling && (!sibling.innerText || sibling.innerText === "")) {
-                        sibling.style.display = 'none';
-                    }
-                } else {
-                    el.innerText = "";
-                }
-            } else {
-                el.style.display = '';
-                // Use innerHTML for titles to support entities/rendering fixes
-                // Support innerHTML for titles and detail text blocks
-                // Use innerHTML for titles/pros/cons to allow formatting (like <br>)
-                if (id.includes('title') || id.toLowerCase().includes('pros') || id.toLowerCase().includes('cons')) {
-                    el.innerHTML = text;
-                } else {
-                    el.innerText = text;
-                }
-            }
+            el.innerHTML = text;
         }
     });
 
     // Update button text
-    const viewRepoBtn = document.getElementById('view-repo-btn');
-    if (viewRepoBtn) viewRepoBtn.innerHTML = `<i data-lucide="github"></i> ${t.viewRepo}`;
-    
-    const exploreBtn = document.getElementById('explore-features-btn');
-    if (exploreBtn) exploreBtn.innerText = t.explore;
-
     const playStoreBtn = document.getElementById('play-store-btn');
-    if (playStoreBtn) playStoreBtn.innerHTML = `<i data-lucide="play"></i> ${t.playStore}`;
+    if (playStoreBtn) {
+        playStoreBtn.innerHTML = `<i class="fab fa-google-play"></i> ${t.playStore}`;
+    }
 
     // Update Footer Text
     const footerText = document.getElementById('footer-text');
@@ -785,9 +619,21 @@ function updateLanguage(lang) {
     if (window.lucide) lucide.createIcons();
 }
 
+// Tactile Feedback (Haptic Simulation)
+document.querySelectorAll('.btn, .social-card, .glass-btn').forEach(button => {
+    button.addEventListener('touchstart', () => {
+        button.style.transform = 'scale(0.95)';
+    });
+    button.addEventListener('touchend', () => {
+        button.style.transform = 'scale(1.02)';
+        setTimeout(() => button.style.transform = '', 100);
+    });
+});
+
 // Initial Lang check
-const savedLang = localStorage.getItem('lang') || 'el'; 
+const savedLang = localStorage.getItem('lang') || 'en'; 
 langSelector.value = savedLang;
+updateLanguage(savedLang);
 
 // Screenshot Gallery Injection
 const gallery = document.getElementById('screenshots-gallery');
@@ -866,3 +712,49 @@ if (btnPrev && btnNext && scrollArea) {
         scrollArea.scrollBy({ left: 400, behavior: 'smooth' });
     });
 }
+
+// GDPR Cookie Consent Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('gdpr-cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const declineBtn = document.getElementById('cookie-decline');
+
+    if (!cookieBanner) return;
+
+    // Check if consent has already been given or denied
+    const consent = localStorage.getItem('gdpr_cookie_consent');
+    
+    if (!consent) {
+        // Show banner if no choice was made
+        cookieBanner.style.display = 'flex';
+    } else if (consent === 'granted') {
+        // Grant analytics if previously accepted
+        grantAnalytics();
+    } // If denied, it defaults to denied by the HTML snippet
+
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('gdpr_cookie_consent', 'granted');
+            cookieBanner.style.display = 'none';
+            grantAnalytics();
+        });
+    }
+
+    if (declineBtn) {
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem('gdpr_cookie_consent', 'denied');
+            cookieBanner.style.display = 'none';
+        });
+    }
+
+    function grantAnalytics() {
+        if (typeof gtag === 'function') {
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted',
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+            });
+        }
+    }
+});
