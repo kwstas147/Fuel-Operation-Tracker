@@ -211,7 +211,7 @@ h1, h2, h3 {
 .hero-premium {
     position: relative;
     padding: 160px 5% 100px;
-    background: var(--bg-color);
+    background: transparent;
     overflow: hidden;
 }
 
