@@ -60,6 +60,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="light-mode">
+    <!-- Ambient Animated Background -->
+    <div class="ambient-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
     <nav class="glass-nav">
         <div class="nav-container">
             <div class="logo">
@@ -127,37 +134,39 @@
         </section>
 
         <!-- Features Section -->
-        <section id="features" class="features-premium">
+        <section id="features" class="features-premium reveal">
             <div class="section-header">
                 <h2 id="features-title">Enterprise Features</h2>
                 <p id="features-subtitle">Precision tools designed for the modern driver.</p>
             </div>
-            <div class="features-grid-pro">
-                <div class="feature-item glass-card">
+            <div class="bento-grid">
+                <div class="bento-card bento-large glass-card">
                     <div class="icon-box"><i class="fas fa-gas-pump"></i></div>
                     <h3 id="f1-title">Smart Fuel Finder</h3>
                     <p id="f1-desc">Real-time fuel prices and interactive map to find the best deals around you.</p>
                 </div>
-                <div class="feature-item glass-card">
+                <div class="bento-card bento-medium-top glass-card">
                     <div class="icon-box"><i class="fas fa-tools"></i></div>
                     <h3 id="f2-title">Maintenance Hub</h3>
                     <p id="f2-desc">Never miss a service. Automated reminders and comprehensive log history.</p>
                 </div>
-                <div class="feature-item glass-card">
+                <div class="bento-card bento-medium-bottom glass-card">
                     <div class="icon-box"><i class="fas fa-chart-line"></i></div>
                     <h3 id="f3-title">Advanced Analytics</h3>
                     <p id="f3-desc">Visual graphs and detailed reports on your vehicle's performance and expenses.</p>
                 </div>
-                <div class="feature-item glass-card">
+                <div class="bento-card bento-wide glass-card">
                     <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
-                    <h3 id="f4-title">Biometric Security</h3>
-                    <p id="f4-desc">Your data, your eyes only. Encrypted storage and biometric locking mechanisms.</p>
+                    <div class="bento-wide-content">
+                        <h3 id="f4-title">Biometric Security</h3>
+                        <p id="f4-desc">Your data, your eyes only. Encrypted storage and biometric locking mechanisms.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Testimonials Section -->
-        <section class="testimonials-premium">
+        <section class="testimonials-premium reveal">
             <h2 id="testimonials-title">Trusted Worldwide</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card glass-card">
@@ -185,7 +194,7 @@
         </section>
 
         <!-- Gallery Section -->
-        <section class="gallery-section">
+        <section class="gallery-section reveal">
             <h2 id="gallery-title">Visual Showcase</h2>
             <div class="gallery-container">
                 <button class="gallery-nav-btn left" id="gallery-prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button>
@@ -198,7 +207,7 @@
         </section>
 
         <!-- Pricing Section -->
-        <section class="pricing-section" id="pricing">
+        <section class="pricing-section reveal" id="pricing">
             <div class="pricing-title">
                 <h2 id="pricing-main-title">Freemium Experience</h2>
                 <p id="pricing-subtitle">Start for free with essential tools, upgrade for the elite features.</p>

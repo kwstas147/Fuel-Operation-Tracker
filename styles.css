@@ -42,6 +42,59 @@ h1, h2, h3 {
     font-family: 'Outfit', sans-serif;
 }
 
+/* Ambient Background */
+.ambient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background: var(--bg-color);
+    transition: background-color 0.5s ease;
+}
+
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: blob-bounce 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blob-1 {
+    top: -10%; left: -10%;
+    width: 60vw; height: 60vw;
+    background: var(--primary);
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    bottom: -20%; right: -10%;
+    width: 50vw; height: 50vw;
+    background: var(--accent-green);
+    animation-delay: -5s;
+}
+
+.blob-3 {
+    top: 30%; left: 50%;
+    width: 40vw; height: 40vw;
+    background: #8e2de2;
+    animation-delay: -10s;
+}
+
+.dark-mode .blob {
+    opacity: 0.25; /* Less intense in dark mode */
+}
+
+@keyframes blob-bounce {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(5%, -5%) scale(1.1); }
+    66% { transform: translate(-5%, 5%) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
 /* Nav */
 .glass-nav {
     position: fixed;
@@ -361,10 +414,82 @@ h1, h2, h3 {
     margin-bottom: 20px;
 }
 
-.features-grid-pro {
+.bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
     gap: 30px;
+}
+
+/* Base Bento Card adjustments */
+.bento-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Specific Sizes */
+.bento-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-medium-top {
+    grid-column: span 2;
+}
+
+.bento-medium-bottom {
+    grid-column: span 2;
+}
+
+.bento-wide {
+    grid-column: span 4;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.bento-wide .icon-box {
+    margin-bottom: 0;
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.bento-wide-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bento-large {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    .bento-medium-top, .bento-medium-bottom {
+        grid-column: span 1;
+    }
+    .bento-wide {
+        grid-column: span 2;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+    .bento-wide .icon-box {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-large, .bento-medium-top, .bento-medium-bottom, .bento-wide {
+        grid-column: span 1;
+    }
 }
 
 .glass-card {
@@ -642,6 +767,18 @@ footer {
 .animate-fade-in { animation: fadeIn 1.2s ease forwards; }
 .delay-1 { animation-delay: 0.2s; opacity: 0; }
 .delay-2 { animation-delay: 0.4s; opacity: 0; }
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 @media (max-width: 900px) {
     .hero {
