@@ -781,19 +781,53 @@ footer {
 }
 
 @media (max-width: 900px) {
-    .hero {
-        flex-direction: column;
-        padding-top: 100px;
-        text-align: center;
+    .hero-premium {
+        padding: 120px 5% 50px;
     }
-    .hero h1 { font-size: 2.5rem; }
-    .hero-actions { justify-content: center; }
-    .hero-image { order: -1; }
-    .phone-mockup { width: 220px; height: 450px; }
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    .hero-visual { order: -1; }
+    .phone-frame { width: 240px; border-width: 6px; }
+    
+    .hero-content-pro h1 { font-size: 2.8rem; margin-bottom: 15px; }
+    .hero-content-pro p { font-size: 1.15rem; margin: 0 auto 30px; }
+    
+    .cta-primary-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .qr-wrapper {
+        display: none; /* Hide QR code on mobile as user can just click button */
+    }
+    
+    .newsletter-compact {
+        margin: 40px auto 0;
+        max-width: 100%;
+        padding: 20px;
+    }
+    .newsletter-compact form {
+        flex-direction: column;
+    }
+    .btn-subscribe {
+        padding: 14px 20px;
+        width: 100%;
+    }
+    
     .screenshot-card { width: 220px; }
     
     .nav-container { padding: 0 10px; gap: 8px; }
     .glass-select { font-size: 0.8rem; padding: 4px 8px; }
+}
+
+@media (max-width: 480px) {
+    .hero-content-pro h1 { font-size: 2.3rem; }
+    .hero-content-pro p { font-size: 1rem; }
+    .phone-frame { width: 200px; }
+    .btn-primary-pro { padding: 14px 30px; font-size: 1rem; }
 }
 
 /* --- New Sections Styling --- */
