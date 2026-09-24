@@ -14,10 +14,38 @@ const translations = {
         f4Desc: "Κρυπτογραφημένη αποθήκευση και βιομετρικό κλείδωμα για απόλυτη ασφάλεια.",
         testimonialsTitle: "Εμπιστοσύνη Διεθνώς",
         galleryTitle: "Visual Showcase",
+        pricingMainTitle: "Εμπειρία Freemium",
+        pricingSubtitle: "Ξεκινήστε δωρεάν με τα βασικά εργαλεία, αναβαθμίστε για τις κορυφαίες λειτουργίες.",
+        freeName: "Δωρεάν",
+        freePrice: "€0",
+        freeF1: "Βασική Παρακολούθηση Οχήματος",
+        freeF2: "Υπενθυμίσεις Συντήρησης",
+        freeF3: "Ασφαλής Τοπική Αποθήκευση",
+        freeF4: "Εύρεση Πρατηρίων",
+        freeF5: "Προηγμένα Αναλυτικά",
+        freeF6: "Εμπειρία χωρίς Διαφημίσεις",
+        freeDetailsTitle: "Ανάλυση Δωρεάν Πλάνου",
+        freeProsTitle: "Πλεονεκτήματα",
+        freeProsText: "Ιδανικό για προσωπική χρήση και βασική καταγραφή.",
+        freeConsTitle: "Μειονεκτήματα",
+        freeConsText: "Μόνο βασικές λειτουργίες, περιέχει διαφημίσεις.",
+        premiumName: "Premium",
+        premiumPrice: "PRO",
+        premiumF1: "Απεριόριστα Οχήματα",
+        premiumF2: "Πλήρες Maintenance Hub",
+        premiumF3: "Προηγμένα Στατιστικά & Αναφορές",
+        premiumF4: "Απεριόριστος Συγχρονισμός Cloud",
+        premiumF5: "Προτεραιότητα Υποστήριξης",
+        premiumF6: "Χωρίς Διαφημίσεις",
+        premiumDetailsTitle: "Ανάλυση Premium Πλάνου",
+        premiumProsTitle: "Πλεονεκτήματα",
+        premiumProsText: "Πλήρης elite εμπειρία με όλα τα επαγγελματικά εργαλεία.",
+        premiumConsTitle: "Σημείωση",
+        premiumConsText: "Απαιτείται συνδρομή PRO για πλήρη πρόσβαση.",
         playStore: "Download Now",
-        footerDevelop: "Developed by",
-        privacyPolicy: "Privacy Policy",
-        termsOfService: "Terms of Service"
+        footerDevelop: "Αναπτύχθηκε από τον",
+        privacyPolicy: "Πολιτική Απορρήτου",
+        termsOfService: "Όροι Χρήσης"
     },
     en: {
         title: "Track Every Drop, <br><span class='gradient-text'>Master Your Expenses.</span>",
@@ -34,6 +62,34 @@ const translations = {
         f4Desc: "Your data, your eyes only. Encrypted storage and biometric locking mechanisms.",
         testimonialsTitle: "Trusted Worldwide",
         galleryTitle: "Visual Showcase",
+        pricingMainTitle: "Freemium Experience",
+        pricingSubtitle: "Start for free with essential tools, upgrade for the elite features.",
+        freeName: "Free",
+        freePrice: "€0",
+        freeF1: "Basic Vehicle Tracking",
+        freeF2: "Maintenance Reminders",
+        freeF3: "Secure Local Storage",
+        freeF4: "Fuel Finder Integration",
+        freeF5: "Advanced Analytics",
+        freeF6: "Ad-Free Experience",
+        freeDetailsTitle: "Free Plan Analysis",
+        freeProsTitle: "Pros",
+        freeProsText: "Ideal for personal use and basic tracking.",
+        freeConsTitle: "Cons",
+        freeConsText: "Basic features only, includes advertisements.",
+        premiumName: "Premium",
+        premiumPrice: "PRO",
+        premiumF1: "Unlimited Vehicles",
+        premiumF2: "Premium Maintenance Hub",
+        premiumF3: "Advanced Stats & Reports",
+        premiumF4: "Unlimited Cloud Sync",
+        premiumF5: "Priority Support",
+        premiumF6: "No Advertisements",
+        premiumDetailsTitle: "Premium Plan Analysis",
+        premiumProsTitle: "Pros",
+        premiumProsText: "Full elite experience with all professional tools.",
+        premiumConsTitle: "Note",
+        premiumConsText: "Requires PRO activation for full access.",
         playStore: "Download Now",
         footerDevelop: "Developed by",
         privacyPolicy: "Privacy Policy",
@@ -543,211 +599,383 @@ const translations = {
     }
 };
 
-const langSelector = document.getElementById('language-selector');
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-const themeIcon = document.getElementById('theme-icon');
+/**
+ * =====================================================================
+ * App Architecture Modules (Clean Architecture / Single Bootstrap)
+ * =====================================================================
+ */
 
-// Theme Logic
-const savedTheme = localStorage.getItem('theme') || 'light-mode';
-body.className = savedTheme;
-updateThemeIcon(savedTheme);
+// 1. Theme Management Module
+const ThemeModule = {
+    themeToggleBtn: null,
+    themeIcon: null,
 
-themeToggle.addEventListener('click', () => {
-    const newTheme = body.classList.contains('light-mode') ? 'dark-mode' : 'light-mode';
-    body.className = newTheme;
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-});
+    init() {
+        this.themeToggleBtn = document.getElementById('theme-toggle');
+        this.themeIcon = document.getElementById('theme-icon');
 
-function updateThemeIcon(theme) {
-    if (theme === 'dark-mode') {
-        themeIcon.setAttribute('data-lucide', 'sun');
-    } else {
-        themeIcon.setAttribute('data-lucide', 'moon');
-    }
-    lucide.createIcons();
-}
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        this.applyTheme(savedTheme);
 
-// Localization Logic
-langSelector.addEventListener('change', (e) => {
-    updateLanguage(e.target.value);
-    localStorage.setItem('lang', e.target.value);
-});
-
-function updateLanguage(lang) {
-    const t = translations[lang];
-    if (!t) return;
-    
-    // Update IDs
-    const elementsToTranslate = [
-        ['hero-title', t.title],
-        ['hero-subtitle', t.subtitle],
-        ['gallery-title', t.galleryTitle],
-        ['features-title', t.featuresTitle],
-        ['features-subtitle', t.featuresSubtitle],
-        ['f1-title', t.f1Title], ['f1-desc', t.f1Desc],
-        ['f2-title', t.f2Title], ['f2-desc', t.f2Desc],
-        ['f3-title', t.f3Title], ['f3-desc', t.f3Desc],
-        ['f4-title', t.f4Title], ['f4-desc', t.f4Desc],
-        ['testimonials-title', t.testimonialsTitle]
-    ];
-    
-    elementsToTranslate.forEach(([id, text]) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.innerHTML = text;
+        if (this.themeToggleBtn) {
+            this.themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = document.body.classList.contains('light-mode') ? 'light-mode' : 'dark-mode';
+                const nextTheme = currentTheme === 'light-mode' ? 'dark-mode' : 'light-mode';
+                this.applyTheme(nextTheme);
+                localStorage.setItem('theme', nextTheme);
+            });
         }
-    });
+    },
 
-    // Update button text
-    const playStoreBtn = document.getElementById('play-store-btn');
-    if (playStoreBtn) {
-        playStoreBtn.innerHTML = `<i class="fab fa-google-play"></i> ${t.playStore}`;
+    applyTheme(theme) {
+        document.body.className = theme;
+        if (this.themeIcon) {
+            this.themeIcon.setAttribute('data-lucide', theme === 'dark-mode' ? 'sun' : 'moon');
+            if (window.lucide) window.lucide.createIcons();
+        }
     }
+};
 
-    // Update Footer Text
-    const footerText = document.getElementById('footer-text');
-    if (footerText) {
-        footerText.innerHTML = `© 2026 Fuel Operation Tracker. ${t.footerDevelop} <a href="https://github.com/kwstas147">kwstas147</a><br>
-        <div class="footer-legal">
-            <a href="privacy.html" id="link-privacy">${t.privacyPolicy}</a> • 
-            <a href="terms.html" id="link-terms">${t.termsOfService}</a>
-        </div>`;
-    }
+// 2. Internationalization (i18n) Module
+const I18nModule = {
+    selector: null,
 
-    if (window.lucide) lucide.createIcons();
-}
+    init() {
+        this.selector = document.getElementById('language-selector');
+        const userPreferred = localStorage.getItem('lang') || 'en';
 
-// Tactile Feedback (Haptic Simulation)
-document.querySelectorAll('.btn, .social-card, .glass-btn').forEach(button => {
-    button.addEventListener('touchstart', () => {
-        button.style.transform = 'scale(0.95)';
-    });
-    button.addEventListener('touchend', () => {
-        button.style.transform = 'scale(1.02)';
-        setTimeout(() => button.style.transform = '', 100);
-    });
-});
+        if (this.selector) {
+            this.selector.value = userPreferred;
+            this.selector.addEventListener('change', (e) => {
+                const lang = e.target.value;
+                this.applyLanguage(lang);
+                localStorage.setItem('lang', lang);
+            });
+        }
 
-// Initial Lang check
-const savedLang = localStorage.getItem('lang') || 'en'; 
-langSelector.value = savedLang;
-updateLanguage(savedLang);
+        this.applyLanguage(userPreferred);
+    },
 
-// Screenshot Gallery Injection
-const gallery = document.getElementById('screenshots-gallery');
-if (gallery) {
-    gallery.innerHTML = ''; 
-    for (let i = 1; i <= 14; i++) {
-        const card = document.createElement('div');
-        card.className = 'screenshot-card';
-        card.innerHTML = `
-            <div class="screenshot-img-wrapper">
-                <img src="assets/screenshots/optimized_assets/${i}-800w.jpg" 
-                     srcset="assets/screenshots/optimized_assets/${i}-400w.jpg 400w,
-                             assets/screenshots/optimized_assets/${i}-800w.jpg 800w,
-                             assets/screenshots/optimized_assets/${i}-1200w.jpg 1200w"
-                     sizes="(max-width: 600px) 280px, 400px"
-                     alt="Screenshot ${i}" 
-                     loading="lazy">
-            </div>
-        `;
-        gallery.appendChild(card);
-    }
-}
+    applyLanguage(lang) {
+        const dict = translations[lang] || translations.en;
+        const fallback = translations.en;
 
-// Update language after everything is ready
-setTimeout(() => {
-    updateLanguage(savedLang);
-}, 100);
+        // Συγχρονισμός document root lang attribute για SEO & a11y
+        document.documentElement.lang = lang;
 
-// Final safety check for Lucide icons
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        if (window.lucide) lucide.createIcons();
-    }, 500);
-});
+        // Δυναμική ανανέωση Title & Meta Description ανάλογα με τη γλώσσα
+        if (lang === 'el') {
+            document.title = "Fuel Operation Tracker | Η Απόλυτη Εφαρμογή Διαχείρισης Καυσίμων";
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', 'Καταγράψτε καταναλώσεις καυσίμων, έξοδα και συντηρήσεις. Επαγγελματικός Cupertino σχεδιασμός με συγχρονισμό και βιομετρική ασφάλεια.');
+            }
+        } else {
+            document.title = "Fuel Operation Tracker | The Ultimate Global Fuel Management App";
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', 'Track fuel consumption, maintenance, and find cheapest stations worldwide. Professional Cupertino design with multi-device sync and biometric security.');
+            }
+        }
 
-// Gallery Interactive Features
-const scrollArea = document.querySelector('.gallery-scroll');
-const btnPrev = document.getElementById('gallery-prev');
-const btnNext = document.getElementById('gallery-next');
+        // Χαρτογράφηση στοιχείων DOM προς μετάφραση
+        const elementsMap = [
+            ['hero-title', dict.title || fallback.title],
+            ['hero-subtitle', dict.subtitle || fallback.subtitle],
+            ['gallery-title', dict.galleryTitle || fallback.galleryTitle],
+            ['features-title', dict.featuresTitle || fallback.featuresTitle],
+            ['features-subtitle', dict.featuresSubtitle || fallback.featuresSubtitle],
+            ['f1-title', dict.f1Title || fallback.f1Title],
+            ['f1-desc', dict.f1Desc || fallback.f1Desc],
+            ['f2-title', dict.f2Title || fallback.f2Title],
+            ['f2-desc', dict.f2Desc || fallback.f2Desc],
+            ['f3-title', dict.f3Title || fallback.f3Title],
+            ['f3-desc', dict.f3Desc || fallback.f3Desc],
+            ['f4-title', dict.f4Title || fallback.f4Title],
+            ['f4-desc', dict.f4Desc || fallback.f4Desc],
+            ['testimonials-title', dict.testimonialsTitle || fallback.testimonialsTitle],
+            ['pricing-main-title', dict.pricingMainTitle || fallback.pricingMainTitle],
+            ['pricing-subtitle', dict.pricingSubtitle || fallback.pricingSubtitle],
+            ['free-name', dict.freeName || fallback.freeName],
+            ['free-price', dict.freePrice || fallback.freePrice],
+            ['free-f1', dict.freeF1 || fallback.freeF1],
+            ['free-f2', dict.freeF2 || fallback.freeF2],
+            ['free-f3', dict.freeF3 || fallback.freeF3],
+            ['free-f4', dict.freeF4 || fallback.freeF4],
+            ['free-f5', dict.freeF5 || fallback.freeF5],
+            ['free-f6', dict.freeF6 || fallback.freeF6],
+            ['free-details-title', dict.freeDetailsTitle || fallback.freeDetailsTitle],
+            ['free-pros-title', dict.freeProsTitle || fallback.freeProsTitle],
+            ['free-pros-text', dict.freeProsText || fallback.freeProsText],
+            ['free-cons-title', dict.freeConsTitle || fallback.freeConsTitle],
+            ['free-cons-text', dict.freeConsText || fallback.freeConsText],
+            ['premium-name', dict.premiumName || fallback.premiumName],
+            ['premium-price', dict.premiumPrice || fallback.premiumPrice],
+            ['premium-f1', dict.premiumF1 || fallback.premiumF1],
+            ['premium-f2', dict.premiumF2 || fallback.premiumF2],
+            ['premium-f3', dict.premiumF3 || fallback.premiumF3],
+            ['premium-f4', dict.premiumF4 || fallback.premiumF4],
+            ['premium-f5', dict.premiumF5 || fallback.premiumF5],
+            ['premium-f6', dict.premiumF6 || fallback.premiumF6],
+            ['premium-details-title', dict.premiumDetailsTitle || fallback.premiumDetailsTitle],
+            ['premium-pros-title', dict.premiumProsTitle || fallback.premiumProsTitle],
+            ['premium-pros-text', dict.premiumProsText || fallback.premiumProsText],
+            ['premium-cons-title', dict.premiumConsTitle || fallback.premiumConsTitle],
+            ['premium-cons-text', dict.premiumConsText || fallback.premiumConsText]
+        ];
 
-if (scrollArea) {
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    scrollArea.addEventListener('mousedown', (e) => {
-        isDown = true;
-        scrollArea.classList.add('active');
-        startX = e.pageX - scrollArea.offsetLeft;
-        scrollLeft = scrollArea.scrollLeft;
-    });
-
-    scrollArea.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-
-    scrollArea.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    scrollArea.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - scrollArea.offsetLeft;
-        const walk = (x - startX) * 2;
-        scrollArea.scrollLeft = scrollLeft - walk;
-    });
-}
-
-if (btnPrev && btnNext && scrollArea) {
-    btnPrev.addEventListener('click', () => {
-        scrollArea.scrollBy({ left: -400, behavior: 'smooth' });
-    });
-    
-    btnNext.addEventListener('click', () => {
-        scrollArea.scrollBy({ left: 400, behavior: 'smooth' });
-    });
-}
-
-// GDPR Cookie Consent Logic
-document.addEventListener('DOMContentLoaded', () => {
-    const cookieBanner = document.getElementById('gdpr-cookie-banner');
-    const acceptBtn = document.getElementById('cookie-accept');
-    const declineBtn = document.getElementById('cookie-decline');
-
-    if (!cookieBanner) return;
-
-    // Check if consent has already been given or denied
-    const consent = localStorage.getItem('gdpr_cookie_consent');
-    
-    if (!consent) {
-        // Show banner if no choice was made
-        cookieBanner.style.display = 'flex';
-    } else if (consent === 'granted') {
-        // Grant analytics if previously accepted
-        grantAnalytics();
-    } // If denied, it defaults to denied by the HTML snippet
-
-    if (acceptBtn) {
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('gdpr_cookie_consent', 'granted');
-            cookieBanner.style.display = 'none';
-            grantAnalytics();
+        elementsMap.forEach(([id, text]) => {
+            const el = document.getElementById(id);
+            if (el && text) {
+                el.innerHTML = text;
+            }
         });
-    }
 
-    if (declineBtn) {
-        declineBtn.addEventListener('click', () => {
-            localStorage.setItem('gdpr_cookie_consent', 'denied');
-            cookieBanner.style.display = 'none';
+        // Ανανέωση κειμένου κουμπιού Google Play διατηρώντας το crisp SVG εικονίδιο
+        const playStoreBtn = document.getElementById('play-store-btn');
+        if (playStoreBtn) {
+            playStoreBtn.innerHTML = `
+                <svg class="store-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.793 12 3.61 22.186c-.37-.367-.61-.913-.61-1.579V3.393c0-.666.24-1.212.61-1.579zm11.236 11.237l2.253 2.253-12.06 6.964 9.807-9.217zm0-2.102L5.038 1.732l12.06 6.964-2.253 2.253zm1.488 1.051l3.528 2.037c.884.511.884 1.345 0 1.856l-3.528 2.037-2.327-2.327 2.327-2.603z"/></svg>
+                <span>${dict.playStore || fallback.playStore || 'Download Now'}</span>
+            `;
+        }
+
+        // Ανανέωση footer
+        const footerText = document.getElementById('footer-text');
+        if (footerText) {
+            const author = `<a href="https://github.com/kwstas147" target="_blank" rel="noopener noreferrer">kwstas147</a>`;
+            const priv = dict.privacyPolicy || fallback.privacyPolicy || 'Privacy Policy';
+            const terms = dict.termsOfService || fallback.termsOfService || 'Terms of Service';
+            const dev = dict.footerDevelop || fallback.footerDevelop || 'Developed by';
+
+            footerText.innerHTML = `© 2026 Fuel Operation Tracker. ${dev} ${author}<br>
+            <div class="footer-legal" style="margin-top: 8px;">
+                <a href="privacy.html" id="link-privacy">${priv}</a> • 
+                <a href="terms.html" id="link-terms">${terms}</a>
+            </div>`;
+        }
+
+        if (window.lucide) window.lucide.createIcons();
+    }
+};
+
+// 3. Showcase Gallery Module
+const GalleryModule = {
+    init() {
+        const galleryContainer = document.getElementById('screenshots-gallery');
+        if (galleryContainer) {
+            galleryContainer.innerHTML = '';
+            for (let i = 1; i <= 14; i++) {
+                const card = document.createElement('div');
+                card.className = 'screenshot-card';
+                card.innerHTML = `
+                    <div class="screenshot-img-wrapper">
+                        <img src="assets/screenshots/optimized_assets/${i}-800w.jpg" 
+                             srcset="assets/screenshots/optimized_assets/${i}-400w.jpg 400w,
+                                     assets/screenshots/optimized_assets/${i}-800w.jpg 800w,
+                                     assets/screenshots/optimized_assets/${i}-1200w.jpg 1200w"
+                             sizes="(max-width: 600px) 280px, 400px"
+                             alt="Fuel Operation Tracker App Screen ${i}" 
+                             width="400" 
+                             height="785" 
+                             loading="lazy">
+                    </div>
+                `;
+                galleryContainer.appendChild(card);
+            }
+        }
+
+        const scrollArea = document.querySelector('.gallery-scroll');
+        const btnPrev = document.getElementById('gallery-prev');
+        const btnNext = document.getElementById('gallery-next');
+
+        if (scrollArea) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            scrollArea.addEventListener('mousedown', (e) => {
+                isDown = true;
+                scrollArea.classList.add('active');
+                startX = e.pageX - scrollArea.offsetLeft;
+                scrollLeft = scrollArea.scrollLeft;
+            });
+
+            scrollArea.addEventListener('mouseleave', () => { isDown = false; });
+            scrollArea.addEventListener('mouseup', () => { isDown = false; });
+            scrollArea.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - scrollArea.offsetLeft;
+                const walk = (x - startX) * 2;
+                scrollArea.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        if (btnPrev && scrollArea) {
+            btnPrev.addEventListener('click', () => {
+                scrollArea.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+        }
+
+        if (btnNext && scrollArea) {
+            btnNext.addEventListener('click', () => {
+                scrollArea.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+        }
+    }
+};
+
+// 4. UI & Interaction Module
+const UIModule = {
+    init() {
+        this.initScrolledNav();
+        this.initScrollReveal();
+        this.initTouchPricing();
+        this.initHaptics();
+        this.init3DTilt();
+        this.initMagneticButtons();
+    },
+
+    initScrolledNav() {
+        const nav = document.querySelector('.glass-nav');
+        if (!nav) return;
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }, { passive: true });
+    },
+
+    initScrollReveal() {
+        const revealElements = document.querySelectorAll('.reveal');
+        if (!revealElements.length) return;
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+        revealElements.forEach(el => observer.observe(el));
+    },
+
+    initTouchPricing() {
+        const pricingCards = document.querySelectorAll('.pricing-card');
+        pricingCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const isAlreadyActive = card.classList.contains('active');
+                pricingCards.forEach(c => c.classList.remove('active'));
+                if (!isAlreadyActive) {
+                    card.classList.add('active');
+                }
+            });
         });
-    }
 
-    function grantAnalytics() {
+        // Κλείσιμο overlay όταν γίνεται tap έξω από τις κάρτες
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.pricing-card')) {
+                pricingCards.forEach(c => c.classList.remove('active'));
+            }
+        });
+    },
+
+    initHaptics() {
+        document.querySelectorAll('.btn, .social-card, .glass-btn, .btn-primary-pro').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.style.transform = 'scale(0.96)';
+            }, { passive: true });
+            button.addEventListener('touchend', () => {
+                button.style.transform = 'scale(1.02)';
+                setTimeout(() => button.style.transform = '', 120);
+            }, { passive: true });
+        });
+    },
+
+    init3DTilt() {
+        // Εφαρμογή μόνο σε desktop με ποντίκι
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            const cards = document.querySelectorAll('.bento-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -8;
+                    const rotateY = ((x - centerX) / centerX) * 8;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                    card.style.transition = 'transform 0.5s ease';
+                });
+
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'transform 0.1s ease';
+                });
+            });
+        }
+    },
+
+    initMagneticButtons() {
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            const magnetics = document.querySelectorAll('.btn-primary-pro, .social-card');
+            magnetics.forEach(elem => {
+                elem.addEventListener('mousemove', (e) => {
+                    const rect = elem.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    elem.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.04)`;
+                });
+                elem.addEventListener('mouseleave', () => {
+                    elem.style.transform = 'translate(0px, 0px) scale(1)';
+                });
+            });
+        }
+    }
+};
+
+// 5. Consent & Privacy Module
+const ConsentModule = {
+    init() {
+        const cookieBanner = document.getElementById('gdpr-cookie-banner');
+        const acceptBtn = document.getElementById('cookie-accept');
+        const declineBtn = document.getElementById('cookie-decline');
+
+        if (!cookieBanner) return;
+
+        const consent = localStorage.getItem('gdpr_cookie_consent');
+        if (!consent) {
+            cookieBanner.style.display = 'flex';
+        } else if (consent === 'granted') {
+            this.grantAnalytics();
+        }
+
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('gdpr_cookie_consent', 'granted');
+                cookieBanner.style.display = 'none';
+                this.grantAnalytics();
+            });
+        }
+
+        if (declineBtn) {
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('gdpr_cookie_consent', 'denied');
+                cookieBanner.style.display = 'none';
+            });
+        }
+    },
+
+    grantAnalytics() {
         if (typeof gtag === 'function') {
             gtag('consent', 'update', {
                 'analytics_storage': 'granted',
@@ -756,5 +984,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 'ad_personalization': 'granted'
             });
         }
+    }
+};
+
+// Single Bootstrap Entry Point
+document.addEventListener('DOMContentLoaded', () => {
+    ThemeModule.init();
+    I18nModule.init();
+    GalleryModule.init();
+    UIModule.init();
+    ConsentModule.init();
+
+    if (window.lucide) {
+        window.lucide.createIcons();
     }
 });
