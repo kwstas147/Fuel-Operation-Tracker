@@ -141,21 +141,78 @@
                         </div>
                     </div>
                     
-                    <!-- Live Savings Estimator (Product as the Demo) -->
-                    <div class="hero-calc-card glass-card">
-                        <div class="calc-header">
-                            <span class="calc-label"><i data-lucide="calculator"></i> <strong id="calc-title">Live Savings Estimator</strong></span>
-                            <span class="calc-distance-tag"><span id="calc-distance-val">1,200</span> km / mo</span>
-                        </div>
-                        <input type="range" id="distance-slider" min="300" max="4000" step="50" value="1200" class="cupertino-slider" aria-label="Monthly distance in kilometers">
-                        <div class="calc-metrics-row">
-                            <div class="metric-item">
-                                <span class="metric-title" id="calc-fuel-lbl">Fuel Needed</span>
-                                <span class="metric-value"><span id="calc-fuel-val">86</span> L/mo</span>
+                    <!-- Live 1-Tap Log Demo (Interactive Product Experience) -->
+                    <div class="hero-demo-card glass-card" id="hero-demo-widget">
+                        <div class="demo-header">
+                            <div class="demo-title-group">
+                                <span class="live-dot" aria-hidden="true"></span>
+                                <span class="demo-label"><strong id="demo-title">Live Demo Καταγραφής</strong></span>
                             </div>
-                            <div class="metric-item highlight">
-                                <span class="metric-title" id="calc-savings-lbl">Est. Yearly Savings</span>
-                                <span class="metric-value savings-gradient"><span id="calc-savings-val">€280</span> / yr</span>
+                            <!-- Preset Pills -->
+                            <div class="demo-presets" role="radiogroup" aria-label="Vehicle Presets">
+                                <button type="button" class="preset-pill active" data-preset="car" aria-checked="true" id="preset-car">🚗 <span id="preset-car-lbl">Ι.Χ.</span></button>
+                                <button type="button" class="preset-pill" data-preset="suv" aria-checked="false" id="preset-suv">🚙 <span id="preset-suv-lbl">SUV</span></button>
+                                <button type="button" class="preset-pill" data-preset="moto" aria-checked="false" id="preset-moto">🛵 <span id="preset-moto-lbl">Moto</span></button>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Sliders / Inputs Grid -->
+                        <div class="demo-inputs-grid">
+                            <div class="demo-input-group">
+                                <div class="input-label-row">
+                                    <span class="input-label" id="demo-liters-lbl">Λίτρα Καυσίμου</span>
+                                    <span class="input-val-badge"><span id="demo-liters-val">45.0</span> L</span>
+                                </div>
+                                <input type="range" id="demo-liters-slider" min="8" max="90" step="0.5" value="45" class="cupertino-slider" aria-label="Fuel Liters">
+                            </div>
+                            <div class="demo-input-group">
+                                <div class="input-label-row">
+                                    <span class="input-label" id="demo-distance-lbl">Διανυθέντα Χλμ</span>
+                                    <span class="input-val-badge"><span id="demo-distance-val">620</span> km</span>
+                                </div>
+                                <input type="range" id="demo-distance-slider" min="80" max="1100" step="10" value="620" class="cupertino-slider" aria-label="Distance in km">
+                            </div>
+                        </div>
+
+                        <!-- Action Button & Instant Confirmation Status -->
+                        <div class="demo-action-row">
+                            <button type="button" class="btn-demo-log" id="btn-demo-log">
+                                <i data-lucide="zap"></i>
+                                <span id="demo-btn-lbl">Καταγραφή με 1 Tap</span>
+                            </button>
+                            <div class="demo-log-status" id="demo-log-status" aria-live="polite">
+                                <i data-lucide="check-circle-2"></i>
+                                <span id="demo-status-text">Επιτυχής καταγραφή #48</span>
+                            </div>
+                        </div>
+
+                        <!-- Live Generated Insights -->
+                        <div class="demo-results-grid">
+                            <div class="result-card">
+                                <span class="result-title" id="demo-res-consumption-lbl">Μέση Κατανάλωση</span>
+                                <div class="result-value-wrap">
+                                    <span class="result-val highlight" id="demo-res-consumption">7.26</span>
+                                    <span class="result-unit">L/100km</span>
+                                </div>
+                                <span class="result-tag tag-good" id="demo-res-tag">✓ Οικονομικό</span>
+                            </div>
+
+                            <div class="result-card">
+                                <span class="result-title" id="demo-res-cost-lbl">Κόστος / Χιλιόμετρο</span>
+                                <div class="result-value-wrap">
+                                    <span class="result-val" id="demo-res-cost-per-km">0.134</span>
+                                    <span class="result-unit">€ / km</span>
+                                </div>
+                                <span class="result-meta"><span id="demo-res-total-cost">83.20</span> € <span id="demo-res-total-lbl">σύνολο</span></span>
+                            </div>
+
+                            <div class="result-card service-card">
+                                <span class="result-title" id="demo-res-service-lbl">Επόμενο Service</span>
+                                <div class="result-value-wrap">
+                                    <span class="result-val" id="demo-res-service-km">4,380</span>
+                                    <span class="result-unit">km</span>
+                                </div>
+                                <span class="result-meta text-alert" id="demo-res-service-text"><i data-lucide="wrench"></i> Αλλαγή λαδιών</span>
                             </div>
                         </div>
                     </div>

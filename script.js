@@ -46,9 +46,18 @@ const translations = {
         footerDevelop: "Αναπτύχθηκε από τον",
         privacyPolicy: "Πολιτική Απορρήτου",
         termsOfService: "Όροι Χρήσης",
-        calcTitle: "Υπολογιστής Εξοικονόμησης",
-        calcFuelLbl: "Απαιτούμενα Καύσιμα",
-        calcSavingsLbl: "Ετήσια Εξοικονόμηση",
+        demoTitle: "Live Demo Καταγραφής",
+        demoLitersLbl: "Λίτρα Καυσίμου",
+        demoDistanceLbl: "Διανυθέντα Χλμ",
+        demoBtnLbl: "Καταγραφή με 1 Tap",
+        demoStatusText: "Επιτυχής καταγραφή #48",
+        demoResConsumptionLbl: "Μέση Κατανάλωση",
+        demoResCostLbl: "Κόστος / Χιλιόμετρο",
+        demoResServiceLbl: "Επόμενο Service",
+        demoResTotalLbl: "σύνολο",
+        presetCarLbl: "Ι.Χ.",
+        presetSuvLbl: "SUV",
+        presetMotoLbl: "Moto",
         statLitersLbl: "Λίτρα Καυσίμων Καταγεγραμμένα",
         statSavingsLbl: "Εξοικονομήθηκαν από Οδηγούς",
         statRatingLbl: "Αξιολόγηση Εφαρμογής",
@@ -103,9 +112,18 @@ const translations = {
         footerDevelop: "Developed by",
         privacyPolicy: "Privacy Policy",
         termsOfService: "Terms of Service",
-        calcTitle: "Live Savings Estimator",
-        calcFuelLbl: "Fuel Needed",
-        calcSavingsLbl: "Est. Yearly Savings",
+        demoTitle: "Live 1-Tap Log Demo",
+        demoLitersLbl: "Fuel Liters",
+        demoDistanceLbl: "Trip Distance",
+        demoBtnLbl: "Log Refill (1-Tap)",
+        demoStatusText: "Refill #48 logged",
+        demoResConsumptionLbl: "Avg Consumption",
+        demoResCostLbl: "Cost per Kilometer",
+        demoResServiceLbl: "Next Service Due",
+        demoResTotalLbl: "total",
+        presetCarLbl: "Car",
+        presetSuvLbl: "SUV",
+        presetMotoLbl: "Moto",
         statLitersLbl: "Liters Logged Globally",
         statSavingsLbl: "Saved by Drivers",
         statRatingLbl: "Driver Satisfaction",
@@ -887,9 +905,17 @@ const I18nModule = {
             ['premium-pros-text', dict.premiumProsText || fallback.premiumProsText],
             ['premium-cons-title', dict.premiumConsTitle || fallback.premiumConsTitle],
             ['premium-cons-text', dict.premiumConsText || fallback.premiumConsText],
-            ['calc-title', dict.calcTitle || fallback.calcTitle],
-            ['calc-fuel-lbl', dict.calcFuelLbl || fallback.calcFuelLbl],
-            ['calc-savings-lbl', dict.calcSavingsLbl || fallback.calcSavingsLbl],
+            ['demo-title', dict.demoTitle || fallback.demoTitle],
+            ['demo-liters-lbl', dict.demoLitersLbl || fallback.demoLitersLbl],
+            ['demo-distance-lbl', dict.demoDistanceLbl || fallback.demoDistanceLbl],
+            ['demo-btn-lbl', dict.demoBtnLbl || fallback.demoBtnLbl],
+            ['demo-res-consumption-lbl', dict.demoResConsumptionLbl || fallback.demoResConsumptionLbl],
+            ['demo-res-cost-lbl', dict.demoResCostLbl || fallback.demoResCostLbl],
+            ['demo-res-service-lbl', dict.demoResServiceLbl || fallback.demoResServiceLbl],
+            ['demo-res-total-lbl', dict.demoResTotalLbl || fallback.demoResTotalLbl],
+            ['preset-car-lbl', dict.presetCarLbl || fallback.presetCarLbl],
+            ['preset-suv-lbl', dict.presetSuvLbl || fallback.presetSuvLbl],
+            ['preset-moto-lbl', dict.presetMotoLbl || fallback.presetMotoLbl],
             ['stat-liters-lbl', dict.statLitersLbl || fallback.statLitersLbl],
             ['stat-savings-lbl', dict.statSavingsLbl || fallback.statSavingsLbl],
             ['stat-rating-lbl', dict.statRatingLbl || fallback.statRatingLbl],
@@ -897,6 +923,10 @@ const I18nModule = {
             ['badge-price-lbl', dict.badgePriceLbl || fallback.badgePriceLbl],
             ['badge-vault-lbl', dict.badgeVaultLbl || fallback.badgeVaultLbl]
         ];
+
+        if (typeof DemoLogModule !== 'undefined' && DemoLogModule.recalculate) {
+            DemoLogModule.recalculate();
+        }
 
         elementsMap.forEach(([id, text]) => {
             const el = document.getElementById(id);
@@ -931,38 +961,179 @@ const I18nModule = {
     }
 };
 
-// 3. Live Savings Estimator (Product-as-the-Demo)
-const CalculatorModule = {
-    slider: null,
-    distanceVal: null,
-    fuelVal: null,
-    savingsVal: null,
-
-    init() {
-        this.slider = document.getElementById('distance-slider');
-        this.distanceVal = document.getElementById('calc-distance-val');
-        this.fuelVal = document.getElementById('calc-fuel-val');
-        this.savingsVal = document.getElementById('calc-savings-val');
-
-        if (!this.slider) return;
-
-        this.slider.addEventListener('input', (e) => {
-            this.recalculate(parseInt(e.target.value, 10));
-        });
-
-        this.recalculate(parseInt(this.slider.value, 10));
+// 3. Interactive Live 1-Tap Log Demo Module
+const DemoLogModule = {
+    currentPreset: 'car',
+    logCount: 48,
+    presets: {
+        car: {
+            liters: 45.0,
+            distance: 620,
+            price: 1.849,
+            serviceKm: 4380,
+            serviceTextEl: 'Αλλαγή λαδιών',
+            serviceTextEn: 'Oil change'
+        },
+        suv: {
+            liters: 56.0,
+            distance: 820,
+            price: 1.589,
+            serviceKm: 6140,
+            serviceTextEl: 'Γενικό service',
+            serviceTextEn: 'General service'
+        },
+        moto: {
+            liters: 13.5,
+            distance: 360,
+            price: 1.879,
+            serviceKm: 1620,
+            serviceTextEl: 'Έλεγχος αλυσίδας',
+            serviceTextEn: 'Chain & brake check'
+        }
     },
 
-    recalculate(km) {
-        if (this.distanceVal) this.distanceVal.textContent = km.toLocaleString();
+    init() {
+        this.litersSlider = document.getElementById('demo-liters-slider');
+        this.distanceSlider = document.getElementById('demo-distance-slider');
+        this.litersVal = document.getElementById('demo-liters-val');
+        this.distanceVal = document.getElementById('demo-distance-val');
+        this.resConsumption = document.getElementById('demo-res-consumption');
+        this.resCostPerKm = document.getElementById('demo-res-cost-per-km');
+        this.resTotalCost = document.getElementById('demo-res-total-cost');
+        this.resServiceKm = document.getElementById('demo-res-service-km');
+        this.resServiceText = document.getElementById('demo-res-service-text');
+        this.resTag = document.getElementById('demo-res-tag');
+        this.btnLog = document.getElementById('btn-demo-log');
+        this.statusBox = document.getElementById('demo-log-status');
+        this.statusText = document.getElementById('demo-status-text');
 
-        // Average 7.2L / 100km
-        const monthlyFuel = Math.round((km * 7.2) / 100);
-        if (this.fuelVal) this.fuelVal.textContent = monthlyFuel;
+        if (!this.litersSlider || !this.distanceSlider) return;
 
-        // Estimated savings based on 15% price optimization via Fuel Finder (~1.80€/L avg)
-        const yearlySavings = Math.round(monthlyFuel * 12 * 1.80 * 0.15);
-        if (this.savingsVal) this.savingsVal.textContent = `€${yearlySavings}`;
+        // Preset switching
+        const presetBtns = document.querySelectorAll('.preset-pill');
+        presetBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const presetKey = btn.dataset.preset;
+                if (!this.presets[presetKey]) return;
+                
+                presetBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-checked', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-checked', 'true');
+
+                this.applyPreset(presetKey);
+            });
+        });
+
+        // Sliders input
+        this.litersSlider.addEventListener('input', () => {
+            this.recalculate();
+        });
+
+        this.distanceSlider.addEventListener('input', () => {
+            this.recalculate();
+        });
+
+        // 1-Tap Log Button
+        if (this.btnLog) {
+            this.btnLog.addEventListener('click', () => {
+                this.triggerLogSuccess();
+            });
+        }
+
+        // Initial setup
+        this.applyPreset('car');
+    },
+
+    applyPreset(key) {
+        this.currentPreset = key;
+        const p = this.presets[key];
+        if (!p) return;
+
+        this.litersSlider.value = p.liters;
+        this.distanceSlider.value = p.distance;
+        this.recalculate();
+    },
+
+    recalculate() {
+        if (!this.litersSlider || !this.distanceSlider) return;
+        const liters = parseFloat(this.litersSlider.value);
+        const distance = parseInt(this.distanceSlider.value, 10);
+        const preset = this.presets[this.currentPreset] || this.presets.car;
+
+        if (this.litersVal) this.litersVal.textContent = liters.toFixed(1);
+        if (this.distanceVal) this.distanceVal.textContent = distance.toLocaleString();
+
+        if (distance > 0) {
+            const consumption = (liters * 100) / distance;
+            const totalCost = liters * preset.price;
+            const costPerKm = totalCost / distance;
+
+            if (this.resConsumption) this.resConsumption.textContent = consumption.toFixed(2);
+            if (this.resTotalCost) this.resTotalCost.textContent = totalCost.toFixed(2);
+            if (this.resCostPerKm) this.resCostPerKm.textContent = costPerKm.toFixed(3);
+
+            // Dynamic Tag
+            if (this.resTag) {
+                const currentLang = document.documentElement.lang || 'el';
+                if (consumption < 5.8) {
+                    this.resTag.textContent = currentLang === 'el' ? '★ Εξαιρετικό' : '★ Outstanding';
+                    this.resTag.style.color = '#34c759';
+                    this.resTag.style.background = 'rgba(52, 199, 89, 0.15)';
+                } else if (consumption < 8.2) {
+                    this.resTag.textContent = currentLang === 'el' ? '✓ Οικονομικό' : '✓ Efficient';
+                    this.resTag.style.color = '#007aff';
+                    this.resTag.style.background = 'rgba(0, 122, 255, 0.15)';
+                } else {
+                    this.resTag.textContent = currentLang === 'el' ? '⚡ Κανονικό' : '⚡ Standard';
+                    this.resTag.style.color = '#ff9500';
+                    this.resTag.style.background = 'rgba(255, 149, 0, 0.15)';
+                }
+            }
+        }
+
+        // Service calculation remaining
+        if (this.resServiceKm) {
+            const remaining = Math.max(800, preset.serviceKm - Math.round(distance * 0.4));
+            this.resServiceKm.textContent = remaining.toLocaleString();
+        }
+
+        if (this.resServiceText) {
+            const currentLang = document.documentElement.lang || 'el';
+            const text = currentLang === 'el' ? preset.serviceTextEl : preset.serviceTextEn;
+            this.resServiceText.innerHTML = `<i data-lucide="wrench"></i> ${text}`;
+            if (window.lucide) window.lucide.createIcons();
+        }
+    },
+
+    triggerLogSuccess() {
+        this.logCount += 1;
+        const currentLang = document.documentElement.lang || 'el';
+        const msg = currentLang === 'el' ? `Επιτυχής καταγραφή #${this.logCount}` : `Refill #${this.logCount} logged`;
+
+        if (this.statusText) this.statusText.textContent = msg;
+        if (this.statusBox) {
+            this.statusBox.classList.remove('show');
+            void this.statusBox.offsetWidth; // trigger reflow
+            this.statusBox.classList.add('show');
+
+            if (this.hideTimeout) clearTimeout(this.hideTimeout);
+            this.hideTimeout = setTimeout(() => {
+                this.statusBox.classList.remove('show');
+            }, 3000);
+        }
+
+        // Haptic button bounce
+        if (this.btnLog) {
+            this.btnLog.style.transform = 'scale(0.94)';
+            setTimeout(() => {
+                this.btnLog.style.transform = '';
+            }, 150);
+        }
+
+        if (window.lucide) window.lucide.createIcons();
     }
 };
 
@@ -1336,7 +1507,7 @@ document.addEventListener('DOMContentLoaded', () => {
     CanvasAuroraModule.init();
     ThemeModule.init();
     I18nModule.init();
-    CalculatorModule.init();
+    DemoLogModule.init();
     StatsTickerModule.init();
     GalleryModule.init();
     LightboxModule.init();
