@@ -84,6 +84,7 @@
 
     <!-- Ambient Animated Background -->
     <div class="ambient-background">
+        <canvas id="ambient-canvas"></canvas>
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
@@ -140,6 +141,25 @@
                         </div>
                     </div>
                     
+                    <!-- Live Savings Estimator (Product as the Demo) -->
+                    <div class="hero-calc-card glass-card">
+                        <div class="calc-header">
+                            <span class="calc-label"><i data-lucide="calculator"></i> <strong id="calc-title">Live Savings Estimator</strong></span>
+                            <span class="calc-distance-tag"><span id="calc-distance-val">1,200</span> km / mo</span>
+                        </div>
+                        <input type="range" id="distance-slider" min="300" max="4000" step="50" value="1200" class="cupertino-slider" aria-label="Monthly distance in kilometers">
+                        <div class="calc-metrics-row">
+                            <div class="metric-item">
+                                <span class="metric-title" id="calc-fuel-lbl">Fuel Needed</span>
+                                <span class="metric-value"><span id="calc-fuel-val">86</span> L/mo</span>
+                            </div>
+                            <div class="metric-item highlight">
+                                <span class="metric-title" id="calc-savings-lbl">Est. Yearly Savings</span>
+                                <span class="metric-value savings-gradient"><span id="calc-savings-val">€280</span> / yr</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="newsletter-compact">
                         <form action="https://formspree.io/f/xwvabwwy" method="POST" id="newsletter-form">
                             <input type="email" placeholder="Enter your email for fuel saving tips..." required name="email">
@@ -149,6 +169,22 @@
                 </div>
                 
                 <div class="hero-visual animate-fade-in">
+                    <!-- Floating Cupertino Badges -->
+                    <div class="floating-badge badge-top-right glass-card">
+                        <div class="badge-icon pulse"><i data-lucide="zap"></i></div>
+                        <div class="badge-text">
+                            <strong>1.619 €/L</strong>
+                            <span id="badge-price-lbl">Best price spotted nearby</span>
+                        </div>
+                    </div>
+                    <div class="floating-badge badge-bottom-left glass-card">
+                        <div class="badge-icon"><i data-lucide="shield-check"></i></div>
+                        <div class="badge-text">
+                            <strong>Biometric Vault</strong>
+                            <span id="badge-vault-lbl">Encrypted & Private</span>
+                        </div>
+                    </div>
+
                     <div class="phone-frame">
                         <div class="phone-screen">
                             <picture>
@@ -190,6 +226,32 @@
                         <h3 id="f4-title">Biometric Security</h3>
                         <p id="f4-desc">Your data, your eyes only. Encrypted storage and biometric locking mechanisms.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Global Impact Stats Ticker Section -->
+        <section class="stats-ticker-section reveal" id="stats">
+            <div class="stats-grid">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon"><i data-lucide="gauge"></i></div>
+                    <div class="stat-number" id="stat-liters" data-target="1420000" data-suffix=" L+">0 L+</div>
+                    <div class="stat-label" id="stat-liters-lbl">Liters Logged Globally</div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon highlight"><i data-lucide="coins"></i></div>
+                    <div class="stat-number highlight" id="stat-savings" data-target="310000" data-prefix="€" data-suffix="+">€0+</div>
+                    <div class="stat-label" id="stat-savings-lbl">Saved by Drivers</div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon"><i data-lucide="star"></i></div>
+                    <div class="stat-number" id="stat-rating" data-target="4.9" data-decimals="1" data-suffix=" / 5.0">0.0 / 5.0</div>
+                    <div class="stat-label" id="stat-rating-lbl">Driver Satisfaction</div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon"><i data-lucide="shield-check"></i></div>
+                    <div class="stat-number" id="stat-privacy" data-target="100" data-suffix="%">0%</div>
+                    <div class="stat-label" id="stat-privacy-lbl">Private & Offline-First</div>
                 </div>
             </div>
         </section>
@@ -274,6 +336,7 @@
                 </div>
                 <!-- Premium Plan -->
                 <div class="pricing-card premium glass">
+                    <div class="border-beam"></div>
                     <div class="pricing-header">
                         <h3 id="premium-name">Premium</h3>
                         <div class="price" id="premium-price">PRO</div>
@@ -341,6 +404,26 @@
         <div class="cookie-actions">
             <button id="cookie-accept" class="btn btn-primary">Accept</button>
             <button id="cookie-decline" class="btn btn-secondary">Decline</button>
+        </div>
+    </div>
+
+    <!-- Cupertino Interactive Gallery Lightbox Modal -->
+    <div id="gallery-lightbox" class="lightbox-modal glass-overlay" aria-hidden="true" style="display: none;">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-dialog glass-card">
+            <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close image preview">
+                <i data-lucide="x"></i>
+            </button>
+            <button class="lightbox-arrow prev" id="lightbox-prev-btn" aria-label="Previous image">
+                <i data-lucide="chevron-left"></i>
+            </button>
+            <div class="lightbox-media-wrapper">
+                <img id="lightbox-img" src="" alt="Full Resolution Preview">
+            </div>
+            <button class="lightbox-arrow next" id="lightbox-next-btn" aria-label="Next image">
+                <i data-lucide="chevron-right"></i>
+            </button>
+            <div class="lightbox-counter"><span id="lightbox-idx">1</span> / 14</div>
         </div>
     </div>
 

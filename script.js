@@ -45,7 +45,16 @@ const translations = {
         playStore: "Download Now",
         footerDevelop: "Αναπτύχθηκε από τον",
         privacyPolicy: "Πολιτική Απορρήτου",
-        termsOfService: "Όροι Χρήσης"
+        termsOfService: "Όροι Χρήσης",
+        calcTitle: "Υπολογιστής Εξοικονόμησης",
+        calcFuelLbl: "Απαιτούμενα Καύσιμα",
+        calcSavingsLbl: "Ετήσια Εξοικονόμηση",
+        statLitersLbl: "Λίτρα Καυσίμων Καταγεγραμμένα",
+        statSavingsLbl: "Εξοικονομήθηκαν από Οδηγούς",
+        statRatingLbl: "Αξιολόγηση Εφαρμογής",
+        statPrivacyLbl: "Ιδιωτικότητα & Offline-First",
+        badgePriceLbl: "Φθηνότερη τιμή στην περιοχή σας",
+        badgeVaultLbl: "Κρυπτογραφημένο & Ασφαλές"
     },
     en: {
         title: "Track Every Drop, <br><span class='gradient-text'>Master Your Expenses.</span>",
@@ -93,7 +102,16 @@ const translations = {
         playStore: "Download Now",
         footerDevelop: "Developed by",
         privacyPolicy: "Privacy Policy",
-        termsOfService: "Terms of Service"
+        termsOfService: "Terms of Service",
+        calcTitle: "Live Savings Estimator",
+        calcFuelLbl: "Fuel Needed",
+        calcSavingsLbl: "Est. Yearly Savings",
+        statLitersLbl: "Liters Logged Globally",
+        statSavingsLbl: "Saved by Drivers",
+        statRatingLbl: "Driver Satisfaction",
+        statPrivacyLbl: "Private & Offline-First",
+        badgePriceLbl: "Best price spotted nearby",
+        badgeVaultLbl: "Encrypted & Private"
     },
     de: {
         title: "Premium-Erlebnis auf allen Plattformen.",
@@ -605,6 +623,155 @@ const translations = {
  * =====================================================================
  */
 
+// 0. Ambient Canvas Aurora Live Wallpaper Engine (60 FPS)
+const CanvasAuroraModule = {
+    canvas: null,
+    ctx: null,
+    animationFrameId: null,
+    orbs: [],
+    particles: [],
+    mouse: { x: -9999, y: -9999, targetX: -9999, targetY: -9999 },
+
+    init() {
+        this.canvas = document.getElementById('ambient-canvas');
+        if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d');
+        if (!this.ctx) return;
+
+        this.resize();
+        this.createOrbs();
+        this.createParticles();
+
+        window.addEventListener('resize', () => {
+            this.resize();
+            this.createOrbs();
+        }, { passive: true });
+
+        // Mouse tracking with gentle damping (desktop only)
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            window.addEventListener('mousemove', (e) => {
+                this.mouse.targetX = e.clientX;
+                this.mouse.targetY = e.clientY;
+            }, { passive: true });
+        }
+
+        // Battery saving: pause loop when tab is hidden
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
+            } else {
+                this.animate();
+            }
+        });
+
+        this.animate();
+    },
+
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    },
+
+    createOrbs() {
+        const w = this.canvas.width;
+        const h = this.canvas.height;
+        this.orbs = [
+            { x: w * 0.2, y: h * 0.25, radius: Math.min(w, h) * 0.35, color: 'rgba(0, 122, 255, 0.22)', vx: 0.35, vy: 0.25 },
+            { x: w * 0.8, y: h * 0.7, radius: Math.min(w, h) * 0.38, color: 'rgba(16, 185, 129, 0.18)', vx: -0.25, vy: -0.3 },
+            { x: w * 0.5, y: h * 0.5, radius: Math.min(w, h) * 0.3, color: 'rgba(142, 45, 226, 0.16)', vx: 0.2, vy: -0.2 }
+        ];
+    },
+
+    createParticles() {
+        const count = window.innerWidth < 768 ? 18 : 38;
+        this.particles = [];
+        for (let i = 0; i < count; i++) {
+            this.particles.push({
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                radius: Math.random() * 2 + 1,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                alpha: Math.random() * 0.5 + 0.2
+            });
+        }
+    },
+
+    animate() {
+        if (!this.ctx || !this.canvas) return;
+
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Smooth mouse easing
+        this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.05;
+        this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.05;
+
+        // Render glowing Aurora Orbs
+        this.orbs.forEach(orb => {
+            orb.x += orb.vx;
+            orb.y += orb.vy;
+
+            if (orb.x < -100 || orb.x > this.canvas.width + 100) orb.vx *= -1;
+            if (orb.y < -100 || orb.y > this.canvas.height + 100) orb.vy *= -1;
+
+            const dx = this.mouse.x - orb.x;
+            const dy = this.mouse.y - orb.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 400 && dist > 0) {
+                orb.x += (dx / dist) * 0.6;
+                orb.y += (dy / dist) * 0.6;
+            }
+
+            const gradient = this.ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.radius);
+            gradient.addColorStop(0, orb.color);
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+            this.ctx.fillStyle = gradient;
+            this.ctx.beginPath();
+            this.ctx.arc(orb.x, orb.y, orb.radius, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+
+        // Render Particles & Connection Strands
+        const isDark = document.body.classList.contains('dark-mode');
+        const colorPrefix = isDark ? 'rgba(255, 255, 255,' : 'rgba(0, 122, 255,';
+
+        for (let i = 0; i < this.particles.length; i++) {
+            const p = this.particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0) p.x = this.canvas.width;
+            if (p.x > this.canvas.width) p.x = 0;
+            if (p.y < 0) p.y = this.canvas.height;
+            if (p.y > this.canvas.height) p.y = 0;
+
+            this.ctx.fillStyle = `${colorPrefix}${p.alpha})`;
+            this.ctx.beginPath();
+            this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            this.ctx.fill();
+
+            // Connect nearby nodes
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const p2 = this.particles[j];
+                const dx = p.x - p2.x;
+                const dy = p.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 110) {
+                    this.ctx.strokeStyle = `${colorPrefix}${0.1 * (1 - dist / 110)})`;
+                    this.ctx.lineWidth = 0.7;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(p.x, p.y);
+                    this.ctx.lineTo(p2.x, p2.y);
+                    this.ctx.stroke();
+                }
+            }
+        }
+
+        this.animationFrameId = requestAnimationFrame(() => this.animate());
+    }
+};
+
 // 1. Theme Management Module
 const ThemeModule = {
     themeToggleBtn: null,
@@ -660,10 +827,9 @@ const I18nModule = {
         const dict = translations[lang] || translations.en;
         const fallback = translations.en;
 
-        // Συγχρονισμός document root lang attribute για SEO & a11y
         document.documentElement.lang = lang;
 
-        // Δυναμική ανανέωση Title & Meta Description ανάλογα με τη γλώσσα
+        // Dynamic Document Title & Meta Description
         if (lang === 'el') {
             document.title = "Fuel Operation Tracker | Η Απόλυτη Εφαρμογή Διαχείρισης Καυσίμων";
             const metaDesc = document.querySelector('meta[name="description"]');
@@ -678,7 +844,6 @@ const I18nModule = {
             }
         }
 
-        // Χαρτογράφηση στοιχείων DOM προς μετάφραση
         const elementsMap = [
             ['hero-title', dict.title || fallback.title],
             ['hero-subtitle', dict.subtitle || fallback.subtitle],
@@ -721,7 +886,16 @@ const I18nModule = {
             ['premium-pros-title', dict.premiumProsTitle || fallback.premiumProsTitle],
             ['premium-pros-text', dict.premiumProsText || fallback.premiumProsText],
             ['premium-cons-title', dict.premiumConsTitle || fallback.premiumConsTitle],
-            ['premium-cons-text', dict.premiumConsText || fallback.premiumConsText]
+            ['premium-cons-text', dict.premiumConsText || fallback.premiumConsText],
+            ['calc-title', dict.calcTitle || fallback.calcTitle],
+            ['calc-fuel-lbl', dict.calcFuelLbl || fallback.calcFuelLbl],
+            ['calc-savings-lbl', dict.calcSavingsLbl || fallback.calcSavingsLbl],
+            ['stat-liters-lbl', dict.statLitersLbl || fallback.statLitersLbl],
+            ['stat-savings-lbl', dict.statSavingsLbl || fallback.statSavingsLbl],
+            ['stat-rating-lbl', dict.statRatingLbl || fallback.statRatingLbl],
+            ['stat-privacy-lbl', dict.statPrivacyLbl || fallback.statPrivacyLbl],
+            ['badge-price-lbl', dict.badgePriceLbl || fallback.badgePriceLbl],
+            ['badge-vault-lbl', dict.badgeVaultLbl || fallback.badgeVaultLbl]
         ];
 
         elementsMap.forEach(([id, text]) => {
@@ -731,7 +905,6 @@ const I18nModule = {
             }
         });
 
-        // Ανανέωση κειμένου κουμπιού Google Play διατηρώντας το crisp SVG εικονίδιο
         const playStoreBtn = document.getElementById('play-store-btn');
         if (playStoreBtn) {
             playStoreBtn.innerHTML = `
@@ -740,7 +913,6 @@ const I18nModule = {
             `;
         }
 
-        // Ανανέωση footer
         const footerText = document.getElementById('footer-text');
         if (footerText) {
             const author = `<a href="https://github.com/kwstas147" target="_blank" rel="noopener noreferrer">kwstas147</a>`;
@@ -759,7 +931,97 @@ const I18nModule = {
     }
 };
 
-// 3. Showcase Gallery Module
+// 3. Live Savings Estimator (Product-as-the-Demo)
+const CalculatorModule = {
+    slider: null,
+    distanceVal: null,
+    fuelVal: null,
+    savingsVal: null,
+
+    init() {
+        this.slider = document.getElementById('distance-slider');
+        this.distanceVal = document.getElementById('calc-distance-val');
+        this.fuelVal = document.getElementById('calc-fuel-val');
+        this.savingsVal = document.getElementById('calc-savings-val');
+
+        if (!this.slider) return;
+
+        this.slider.addEventListener('input', (e) => {
+            this.recalculate(parseInt(e.target.value, 10));
+        });
+
+        this.recalculate(parseInt(this.slider.value, 10));
+    },
+
+    recalculate(km) {
+        if (this.distanceVal) this.distanceVal.textContent = km.toLocaleString();
+
+        // Average 7.2L / 100km
+        const monthlyFuel = Math.round((km * 7.2) / 100);
+        if (this.fuelVal) this.fuelVal.textContent = monthlyFuel;
+
+        // Estimated savings based on 15% price optimization via Fuel Finder (~1.80€/L avg)
+        const yearlySavings = Math.round(monthlyFuel * 12 * 1.80 * 0.15);
+        if (this.savingsVal) this.savingsVal.textContent = `€${yearlySavings}`;
+    }
+};
+
+// 4. Animated Stats Ticker Module
+const StatsTickerModule = {
+    hasAnimated: false,
+
+    init() {
+        const statsSection = document.getElementById('stats');
+        if (!statsSection) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !this.hasAnimated) {
+                this.hasAnimated = true;
+                this.startCounting();
+            }
+        }, { threshold: 0.2 });
+
+        observer.observe(statsSection);
+    },
+
+    startCounting() {
+        const stats = [
+            { id: 'stat-liters', target: 1420000, suffix: ' L+', format: true },
+            { id: 'stat-savings', target: 310000, prefix: '€', suffix: '+', format: true },
+            { id: 'stat-rating', target: 4.9, decimals: 1, suffix: ' / 5.0' },
+            { id: 'stat-privacy', target: 100, suffix: '%' }
+        ];
+
+        stats.forEach(item => {
+            const el = document.getElementById(item.id);
+            if (!el) return;
+
+            const duration = 2200;
+            const startTime = performance.now();
+
+            const update = (now) => {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out quad
+                const ease = 1 - (1 - progress) * (1 - progress);
+                const current = item.decimals 
+                    ? (ease * item.target).toFixed(item.decimals)
+                    : Math.floor(ease * item.target);
+
+                const formatted = item.format ? Number(current).toLocaleString() : current;
+                el.textContent = `${item.prefix || ''}${formatted}${item.suffix || ''}`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            };
+
+            requestAnimationFrame(update);
+        });
+    }
+};
+
+// 5. Showcase Gallery & Lightbox Module
 const GalleryModule = {
     init() {
         const galleryContainer = document.getElementById('screenshots-gallery');
@@ -768,6 +1030,7 @@ const GalleryModule = {
             for (let i = 1; i <= 14; i++) {
                 const card = document.createElement('div');
                 card.className = 'screenshot-card';
+                card.setAttribute('aria-label', `View Screenshot ${i} in full resolution`);
                 card.innerHTML = `
                     <div class="screenshot-img-wrapper">
                         <img src="assets/screenshots/optimized_assets/${i}-800w.jpg" 
@@ -781,6 +1044,7 @@ const GalleryModule = {
                              loading="lazy">
                     </div>
                 `;
+                card.addEventListener('click', () => LightboxModule.open(i));
                 galleryContainer.appendChild(card);
             }
         }
@@ -826,12 +1090,79 @@ const GalleryModule = {
     }
 };
 
-// 4. UI & Interaction Module
+// 6. Cupertino Interactive Gallery Lightbox
+const LightboxModule = {
+    modal: null,
+    img: null,
+    idxSpan: null,
+    currentIndex: 1,
+    totalImages: 14,
+
+    init() {
+        this.modal = document.getElementById('gallery-lightbox');
+        this.img = document.getElementById('lightbox-img');
+        this.idxSpan = document.getElementById('lightbox-idx');
+
+        if (!this.modal) return;
+
+        const closeBtn = document.getElementById('lightbox-close-btn');
+        const backdrop = this.modal.querySelector('.lightbox-backdrop');
+
+        if (closeBtn) closeBtn.addEventListener('click', () => this.close());
+        if (backdrop) backdrop.addEventListener('click', () => this.close());
+
+        const prevBtn = document.getElementById('lightbox-prev-btn');
+        const nextBtn = document.getElementById('lightbox-next-btn');
+
+        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
+        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
+
+        document.addEventListener('keydown', (e) => {
+            if (this.modal.style.display !== 'flex') return;
+            if (e.key === 'Escape') this.close();
+            if (e.key === 'ArrowLeft') this.prev();
+            if (e.key === 'ArrowRight') this.next();
+        });
+    },
+
+    open(index) {
+        this.currentIndex = index;
+        if (this.img) {
+            this.img.src = `assets/screenshots/optimized_assets/${index}-1200w.jpg`;
+            this.img.alt = `Fuel Operation Tracker App Screen ${index} Full Preview`;
+        }
+        if (this.idxSpan) {
+            this.idxSpan.textContent = index;
+        }
+        this.modal.style.display = 'flex';
+        this.modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    },
+
+    close() {
+        this.modal.style.display = 'none';
+        this.modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    },
+
+    prev() {
+        const next = this.currentIndex > 1 ? this.currentIndex - 1 : this.totalImages;
+        this.open(next);
+    },
+
+    next() {
+        const next = this.currentIndex < this.totalImages ? this.currentIndex + 1 : 1;
+        this.open(next);
+    }
+};
+
+// 7. UI & Interaction Module
 const UIModule = {
     init() {
         this.initScrolledNav();
         this.initScrollReveal();
         this.initTouchPricing();
+        this.initSpotlight();
         this.initHaptics();
         this.init3DTilt();
         this.initMagneticButtons();
@@ -877,7 +1208,6 @@ const UIModule = {
             });
         });
 
-        // Κλείσιμο overlay όταν γίνεται tap έξω από τις κάρτες
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.pricing-card')) {
                 pricingCards.forEach(c => c.classList.remove('active'));
@@ -885,8 +1215,23 @@ const UIModule = {
         });
     },
 
+    initSpotlight() {
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            const cards = document.querySelectorAll('.bento-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
+    },
+
     initHaptics() {
-        document.querySelectorAll('.btn, .social-card, .glass-btn, .btn-primary-pro').forEach(button => {
+        document.querySelectorAll('.btn, .social-card, .glass-btn, .btn-primary-pro, .screenshot-card').forEach(button => {
             button.addEventListener('touchstart', () => {
                 button.style.transform = 'scale(0.96)';
             }, { passive: true });
@@ -898,7 +1243,6 @@ const UIModule = {
     },
 
     init3DTilt() {
-        // Εφαρμογή μόνο σε desktop με ποντίκι
         if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
             const cards = document.querySelectorAll('.bento-card');
             cards.forEach(card => {
@@ -943,7 +1287,7 @@ const UIModule = {
     }
 };
 
-// 5. Consent & Privacy Module
+// 8. Consent & Privacy Module
 const ConsentModule = {
     init() {
         const cookieBanner = document.getElementById('gdpr-cookie-banner');
@@ -989,9 +1333,13 @@ const ConsentModule = {
 
 // Single Bootstrap Entry Point
 document.addEventListener('DOMContentLoaded', () => {
+    CanvasAuroraModule.init();
     ThemeModule.init();
     I18nModule.init();
+    CalculatorModule.init();
+    StatsTickerModule.init();
     GalleryModule.init();
+    LightboxModule.init();
     UIModule.init();
     ConsentModule.init();
 

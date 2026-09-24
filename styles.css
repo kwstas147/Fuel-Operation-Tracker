@@ -1187,3 +1187,472 @@ select,
     border-radius: 10px;
 }
 
+/* ==========================================================================
+   ELITE WOW FACTOR DESIGN SYSTEM (2026 BENCHMARKS)
+   ========================================================================== */
+
+/* 1. Ambient Canvas Aurora Live Wallpaper */
+#ambient-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 2. Floating Cupertino Badges (Hero Section) */
+.hero-visual {
+    position: relative;
+}
+
+.floating-badge {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    animation: floatBadge 6s ease-in-out infinite alternate;
+}
+
+.floating-badge.badge-top-right {
+    top: 15%;
+    right: -30px;
+    animation-delay: 0s;
+}
+
+.floating-badge.badge-bottom-left {
+    bottom: 12%;
+    left: -30px;
+    animation-delay: -3s;
+}
+
+.badge-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: var(--primary-gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.badge-icon.pulse {
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5);
+    animation: badgePulse 2s infinite ease-in-out;
+}
+
+.badge-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.badge-text strong {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.badge-text span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+@keyframes floatBadge {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-16px) rotate(1.5deg); }
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(0, 122, 255, 0.8); }
+}
+
+@media (max-width: 900px) {
+    .floating-badge {
+        display: none; /* Hide on mobile so phone is not obscured */
+    }
+}
+
+/* 3. Hero Live Savings Estimator Card (Product-as-the-Demo) */
+.hero-calc-card {
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.calc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.calc-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.calc-label i,
+.calc-label svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary);
+}
+
+.calc-distance-tag {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary);
+    background: rgba(0, 122, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.cupertino-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: rgba(0, 122, 255, 0.15);
+    outline: none;
+    cursor: pointer;
+    margin: 8px 0 16px;
+    transition: background 0.3s;
+}
+
+.cupertino-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.cupertino-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+
+.cupertino-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.calc-metrics-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.metric-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--glass-border);
+}
+
+.dark-mode .metric-item {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.metric-item.highlight {
+    background: rgba(0, 122, 255, 0.08);
+    border-color: rgba(0, 122, 255, 0.25);
+}
+
+.metric-title {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.metric-value {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.savings-gradient {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 4. Bento Grid Spotlight Hover Effect (Linear Style) */
+.bento-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        450px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+        rgba(0, 122, 255, 0.15),
+        transparent 45%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bento-card:hover::before {
+    opacity: 1;
+}
+
+/* 5. Border Beam Laser Glow on PRO Pricing Card */
+.pricing-card.premium {
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card.premium .border-beam {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0%,
+        rgba(0, 122, 255, 0.9) 10%,
+        #34c759 20%,
+        transparent 30%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: rotateLaserBeam 4s linear infinite;
+    z-index: 2;
+}
+
+@keyframes rotateLaserBeam {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 6. Stats Ticker Section */
+.stats-ticker-section {
+    padding: 70px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.stat-card {
+    text-align: center;
+    padding: 35px 20px;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(0, 122, 255, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon.highlight {
+    background: rgba(17, 153, 142, 0.15);
+    color: #11998e;
+}
+
+.stat-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.stat-number.highlight {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* 7. Interactive Cupertino Gallery Lightbox Modal */
+.lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    cursor: pointer;
+}
+
+.lightbox-dialog {
+    position: relative;
+    z-index: 2;
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 20px;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-media-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 75vh;
+}
+
+.lightbox-media-wrapper img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 18px;
+    object-fit: contain;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    z-index: 5;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    z-index: 4;
+}
+
+.lightbox-arrow:hover {
+    transform: translateY(-50%) scale(1.15);
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.lightbox-arrow.prev { left: 15px; }
+.lightbox-arrow.next { right: 15px; }
+
+.lightbox-counter {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.screenshot-card {
+    cursor: pointer;
+}
+
+
